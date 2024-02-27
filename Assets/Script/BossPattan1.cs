@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterPattan1 : MonoBehaviour
+public class BossPattan1 : MonoBehaviour
 {
+    [SerializeField] AttackSO data;
     [Header("look")]
     public Transform target; //플레이어
     public float LookSpeed = 5f;
@@ -16,6 +17,7 @@ public class MonsterPattan1 : MonoBehaviour
 
     void Start()
     {
+        data.targetTransform = target;
         StartCoroutine(Move());
     }
 
@@ -28,7 +30,7 @@ public class MonsterPattan1 : MonoBehaviour
     void LookTarget()
     {
         //바라보는 방향만 가져오기
-        Vector3 targetDirection = (target.position - transform.position).normalized;
+        Vector3 targetDirection = (data.targetTransform.position - transform.position).normalized;
 
         //바라볼 방향을 쿼터니온 변수에 저장 (Lerp을 사용하기 위해서 쿼터니온 변수 쓰는것도 있음)
         Quaternion SetRotation = Quaternion.LookRotation(targetDirection);
@@ -38,41 +40,32 @@ public class MonsterPattan1 : MonoBehaviour
 
     IEnumerator Move()
     {
-
         while(true)
         {
-            if (false)//탈출할 예정이 있으면 이거 사용
-            {
-                break;
-            }
-
             yield return new WaitForFixedUpdate();
-            Vector3 direction = (targetPos[_index].transform.position - transform.position).normalized;
+            Vector3 targetPosition = targetPos[_index].transform.position;
+            targetPosition.y = transform.position.y; 
+            Vector3 direction = (targetPosition - transform.position).normalized;
+
+            //Vector3.Distance는 두점사이의 거리를 나타내는 메소드
             float distance = Vector3.Distance(transform.position, targetPos[_index].transform.position);
-
-
-            if (distance > 0.1f)
+            if (distance < 0.5f)
             {
-                transform.Translate(direction * speed * Time.deltaTime, Space.World);
-            }
-            else
-            {
-                gameObject.transform.position = targetPos[_index].position;
+                transform.position = new Vector3(targetPos[_index].position.x, transform.position.y, targetPos[_index].position.z);
                 _index++;
+
+                ProjectileManager.instance.AttackProjectiles(data,gameObject);
 
                 if (_index >= targetPos.Length)
                 {
                     _index = 0;
                 }
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1.3f);
             }
-
-
+            else
+            {
+                transform.Translate(direction * speed * Time.deltaTime, Space.World);
+            }
         }
-
     }
-
-
-
-
 }
