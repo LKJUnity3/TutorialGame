@@ -18,25 +18,28 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection;
 
     private Vector3 dashDirection;
-    public float dashTime = 0.5f;//대시지속시간
-    public float calDashTime;//대시누적시간
+    public float dashTime;//대시지속시간
+    public float DashCoolTime;//쿨타임
     public PlayerState playerState;
-    public float dashSpeed = 8f;
+    public float dashSpeed;
 
     void Start()
     {
         playerState = PlayerState.Move;
+        DashCoolTime = 2.2f;
     }
 
     void Update()
     {
+        if (DashCoolTime <= 2.2f)
+        {
+            DashCoolTime += Time.deltaTime;
+        }
+
         switch (playerState)
         {
             case PlayerState.Move:
-                if (moveDirection == Vector3.zero)
-                    return;
-                transform.rotation = Quaternion.LookRotation(moveDirection);
-                transform.position += (moveDirection * moveSpeed * Time.deltaTime);
+                Move();
                 break;
             case PlayerState.Dash:
                 Dash();
@@ -44,12 +47,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Move()
+    {
+        if (moveDirection == Vector3.zero)
+            return;
+        transform.rotation = Quaternion.LookRotation(moveDirection);
+        transform.position += (moveDirection * moveSpeed * Time.deltaTime);
+    }
+
     public void Dash()
     {
-        calDashTime += Time.deltaTime;//시간이 누적됨
+        //DashCoolTime += Time.deltaTime;//시간이 누적됨
         transform.position += (dashDirection * dashSpeed * Time.deltaTime);//대시로 이동
 
-        if(calDashTime > dashTime)//0/5초 지나면 Move상태로.
+        if(DashCoolTime > dashTime)//시간 지나면 Move상태로.
         {
             playerState = PlayerState.Move;
         }
@@ -72,6 +83,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnDash(InputAction.CallbackContext context)
     {
+        Debug.Log("대시");
         if (playerState == PlayerState.Dash)
         {
             return;
@@ -80,6 +92,9 @@ public class PlayerController : MonoBehaviour
         dashDirection = moveDirection;//moveDirection 방향으로
         playerState = PlayerState.Dash;
 
-        calDashTime = 0; //초기화
+        if (DashCoolTime >= 2.2f)
+        {
+            DashCoolTime = 0; //초기화
+        }
     }
 }
