@@ -1,39 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public CharacterController playerControl;
-    public float speed;
-    private float gravity;
-    private Vector3 moveDiretion;
-
+    public float moveSpeed = 5f;
+    private Vector2 moveInput;
+    private Vector3 moveDirection;
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = 5f;
-        gravity = 10f;
-        moveDiretion = Vector3.zero;
+
+    }
+
+    private void FixedUpdate()
+    {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerControl == null) return;//예외처리
+            transform.rotation = Quaternion.LookRotation(moveDirection);
+            transform.position += (moveDirection * moveSpeed * Time.deltaTime);
+    }
 
-        if(playerControl.isGrounded)//플레이어가 땅에 붙어있으면
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        Debug.Log("작동");
+        if (context.phase == InputActionPhase.Performed)
         {
-            moveDiretion = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            moveDiretion = playerControl.transform.TransformDirection(moveDiretion);
-            moveDiretion *= speed; 
+            moveInput = context.ReadValue<Vector2>(); //입력받아서 움직임
+            moveDirection = new Vector3(moveInput.x, 0f, moveInput.y); //방향설정
         }
-        else
+        else if (context.phase == InputActionPhase.Canceled)
         {
-            moveDiretion.y -= gravity * Time.deltaTime;
+            moveInput = Vector2.zero;
+            moveDirection = Vector3.zero;   
         }
-
-        playerControl.Move(moveDiretion*Time.deltaTime);
     }
 }
