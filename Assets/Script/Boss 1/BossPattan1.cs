@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossPattan1 : MonoBehaviour
+public class BossPattan1 : LookBoss
 {
     [SerializeField] AttackSO data;
-    [Header("look")]
-    public Transform target; //플레이어
-    public float LookSpeed = 5f;
 
     [Header("Movement")]
     [SerializeField] private float speed;
@@ -25,16 +22,6 @@ public class BossPattan1 : MonoBehaviour
     private void FixedUpdate()
     {
         LookTarget();
-    }
-
-    void LookTarget()
-    {
-        //바라보는 방향만 가져오기
-        Vector3 targetDirection = (data.targetTransform.position - transform.position).normalized;
-
-        //바라볼 방향을 쿼터니온 변수에 저장 (Lerp을 사용하기 위해서 쿼터니온 변수 쓰는것도 있음)
-        Quaternion SetRotation = Quaternion.LookRotation(targetDirection);
-        transform.rotation = Quaternion.Lerp(transform.rotation, SetRotation, LookSpeed * Time.deltaTime);
     }
 
 
