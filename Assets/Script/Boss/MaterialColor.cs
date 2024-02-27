@@ -6,16 +6,16 @@ using UnityEngine.Experimental.AI;
 
 public class MaterialColor : MonoBehaviour
 {
-    private int[] set = new int[3];
     [SerializeField]
     private Renderer rendererColor;
 
     private void SetColor()
     {
-        for (int i = 0; i < set.Length; i++)
+        for (int i = 0; i < BossManager.instance.colorList.Length; i++)
         {
-            set[i] = Random.Range(0, 3);
+            BossManager.instance.colorList[i] = Random.Range(0, 3);
         }
+
     }
     private void Start()
     {
@@ -41,10 +41,11 @@ public class MaterialColor : MonoBehaviour
     private IEnumerator ColorSwitch()
     {
         WaitForSeconds waitForSeconds = new WaitForSeconds(1);
-        for (int i = 0;i < set.Length;i++)
+        for (int i = 0;i < BossManager.instance.colorList.Length;i++)
         {
-            SwitchColor(set[i]);
+            SwitchColor(BossManager.instance.colorList[i]);
             yield return waitForSeconds;
         }
+        Destroy(gameObject);
     }
 }
