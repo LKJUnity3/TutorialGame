@@ -15,7 +15,6 @@ public class MaterialColor : MonoBehaviour
         {
             BossManager.instance.colorList[i] = Random.Range(0, 3);
         }
-
     }
     private void Start()
     {
@@ -48,4 +47,6 @@ public class MaterialColor : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
+
 }
