@@ -12,4 +12,8 @@ public class AttackSO : ScriptableObject
     public int minProjectiles = 4;
     public int maxProjectiles = 6;
     public float angleBetweenProjectiles = 15f;
+
+    public float minMoveForce = 8f;
+    public float maxMoveForce = 15f;
+
 }
