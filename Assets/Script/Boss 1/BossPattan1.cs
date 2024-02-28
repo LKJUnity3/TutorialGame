@@ -41,7 +41,7 @@ public class BossPattan1 : LookBoss
                 transform.position = new Vector3(targetPos[_index].position.x, transform.position.y, targetPos[_index].position.z);
                 _index++;
 
-                ProjectileManager.instance.AttackProjectiles(data,gameObject);
+                ProjectileManager.instance.AttackProjectiles1(data,gameObject);
 
                 if (_index >= targetPos.Length)
                 {

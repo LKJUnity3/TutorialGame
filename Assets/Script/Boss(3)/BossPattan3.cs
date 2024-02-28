@@ -2,16 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossPattan2 : LookBoss
+public class BossPattan3 : LookBoss
 {
+    [Header("Movement")]
     public float jumpForce = 15f;
     public float moveForce = 5f;
-    public float targetDistanse = 40f;
+    public float MaxtargetDistanse = 40f;
+    public float MintargetDistanse = 5f;
+    [Header("Bomb")]
+    bool bombTrue;
+
 
     private Rigidbody _rigidbody;
 
+
+
     void Start()
     {
+        bombTrue = true;
         _rigidbody = GetComponent<Rigidbody>();
         StartCoroutine(Move());
     }
@@ -19,6 +27,12 @@ public class BossPattan2 : LookBoss
     void FixedUpdate()
     {
         LookTarget();
+
+        if(transform.childCount == 0 && bombTrue)
+        {
+            bombTrue = false;
+            Bomb();
+        }
     }
 
 
@@ -26,12 +40,21 @@ public class BossPattan2 : LookBoss
     {
         while (true)
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(4f);
 
             Jump();
         }
     }
 
+    IEnumerator Bomb()
+    {
+
+        yield return new WaitForSeconds(5f);
+        //±¤Àç´Ô ¸Þ¼Òµå
+
+        bombTrue = true;
+        
+    }
 
 
     void Jump()
@@ -51,7 +74,11 @@ public class BossPattan2 : LookBoss
         Vector3 randomSet = new Vector3(randomX, 0f, randomZ);
 
         float distance = Vector3.Distance(transform.position, target.transform.position);
-        if (distance > targetDistanse)
+        if (distance > MaxtargetDistanse)
+        {
+            return (transform.forward + randomSet).normalized * moveForce;
+        }
+        else if(distance< MintargetDistanse)
         {
             return (transform.forward + randomSet).normalized * moveForce;
         }
