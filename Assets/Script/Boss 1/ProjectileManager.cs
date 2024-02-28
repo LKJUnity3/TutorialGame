@@ -19,7 +19,7 @@ public class ProjectileManager : MonoBehaviour
 
     }
 
-    public void AttackProjectiles(AttackSO attackData, GameObject cur)
+    public void AttackProjectiles1(AttackSO attackData, GameObject cur)
     {
         Vector3 directionTarget = (attackData.targetTransform.position - cur.transform.position).normalized;
         int numProjectiles = Random.Range(attackData.minProjectiles, attackData.maxProjectiles + 1);
@@ -42,6 +42,19 @@ public class ProjectileManager : MonoBehaviour
 
             projectile.transform.parent = attackPrefebParent.transform;
             projectile.transform.rotation = Quaternion.LookRotation(projectileDirection);
+        }
+    }
+
+    public void AttackProjectiles2(AttackSO attackData, GameObject cur)
+    {
+        Vector3 directionTarget = (attackData.targetTransform.position - cur.transform.position).normalized;
+        int numProjectiles = Random.Range(attackData.minProjectiles, attackData.maxProjectiles + 1);
+
+        for (int i = 0; i < numProjectiles; i++)
+        {
+            GameObject projectile = Instantiate(attackData.AttackPrefab, cur.transform.position, Quaternion.identity);
+
+            projectile.transform.parent = attackPrefebParent.transform;
         }
     }
 }
