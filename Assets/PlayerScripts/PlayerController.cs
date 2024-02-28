@@ -15,9 +15,13 @@ public enum PlayerState
 
 public class PlayerController : MonoBehaviour
 {
+    bool isSooting = false;
+    public float comebackTime;
+
     public GameObject swordPrefab;
     public GameObject swordSpawnPoint;
-    public GameObject TestPrefab;
+    private GameObject TestPrefab;
+    //public ThrowSword throwSword;
 
     public float moveSpeed = 5f;
     private Vector2 moveInput;
@@ -51,7 +55,23 @@ public class PlayerController : MonoBehaviour
                 Dash();
                 break;
             case PlayerState.Shoot:
+                if(TestPrefab != null)
+                {
+                    Debug.Log("돌아와");
+                    comebackTime += Time.deltaTime / 5;
+                    TestPrefab.transform.position = Vector3.Lerp(TestPrefab.transform.position, transform.position, comebackTime);
+
+                    if (TestPrefab.transform.position == transform.position)
+                    {
+                        Destroy(TestPrefab);//돌아왔다면 없어져
+
+                        playerState= PlayerState.Move;
+                    }
+                }
+                else
+                {
                 ShootSword();
+                }
                 break;
         }
     }
@@ -81,13 +101,25 @@ public class PlayerController : MonoBehaviour
         if (TestPrefab == null)
         {
             TestPrefab = Instantiate(swordPrefab, swordSpawnPoint.transform.position, transform.rotation);//스폰포지션에서 발사
+            comebackTime = 0;
         }
-        else
-        {
-
-        }
-
+        //else//프리팹이 있으면
+        //{
+        //        Debug.Log("돌아와");
+        //        comebackTime += Time.deltaTime / 5;
+        //        TestPrefab.transform.position = Vector3.Lerp(TestPrefab.transform.position, transform.position, comebackTime);
+                
+        //    if(TestPrefab.transform.position==transform.position)
+        //        Destroy(TestPrefab);//돌아왔다면 없어져
+        //}
         playerState = PlayerState.Move;
+    }
+
+    IEnumerator IBack()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        isSooting = true;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -119,8 +151,10 @@ public class PlayerController : MonoBehaviour
             Debug.Log("투척");
             if (playerState == PlayerState.Dash)//Dash상태일땐 투척불가
                 return;
-            playerState = PlayerState.Shoot;
-        }
 
+            playerState = PlayerState.Shoot;
+
+            StartCoroutine(IBack());//0.5초 후 ctrl다시 누를 수 있음.
+        }
     }
 }
