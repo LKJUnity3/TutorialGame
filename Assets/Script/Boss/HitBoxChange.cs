@@ -24,14 +24,17 @@ public class HitBoxChange : MonoBehaviour
             case 0:
                 Clone.transform.position = new Vector3 (4, 1, 0);
                 renderer.material.color = Color.red;
+                Clone.GetComponent<HitCount>().state = 0;
                 break;
             case 1:
                 Clone.transform.position = new Vector3 (-4,1,0);
                 renderer.material.color = Color.green;
+                Clone.GetComponent<HitCount>().state = 1;
                 break;
             case 2:
                 Clone.transform.position = new Vector3(0, 1, 4);
                 renderer.material.color = Color.blue;
+                Clone.GetComponent<HitCount>().state = 2;
                 break;
         }
     }
