@@ -224,7 +224,8 @@ MonoBehaviour:
   LookSpeed: 1.5
   jumpForce: 6
   moveForce: 4
-  targetDistanse: 10
+  MaxtargetDistanse: 30
+  MintargetDistanse: 6
 --- !u!1 &464622538
 GameObject:
   m_ObjectHideFlags: 0
