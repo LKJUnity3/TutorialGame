@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackController : MonoBehaviour
+public class AttackController1 : MonoBehaviour
 {
     private Rigidbody _rigidbody;
     public AttackSO data;

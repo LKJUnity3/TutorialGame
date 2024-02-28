@@ -7,15 +7,13 @@ public class BossPattan3 : LookBoss
     [Header("Movement")]
     public float jumpForce = 15f;
     public float moveForce = 5f;
-    public float MaxtargetDistanse = 40f;
+    public float MaxtargetDistanse = 20f;
     public float MintargetDistanse = 5f;
     [Header("Bomb")]
     bool bombTrue;
 
 
     private Rigidbody _rigidbody;
-
-
 
     void Start()
     {
@@ -41,10 +39,10 @@ public class BossPattan3 : LookBoss
         while (true)
         {
             yield return new WaitForSeconds(4f);
-
             Jump();
         }
     }
+
 
     IEnumerator Bomb()
     {

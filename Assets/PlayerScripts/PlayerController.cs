@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UIElements;
 
 public enum PlayerState
 {
@@ -15,13 +16,12 @@ public enum PlayerState
 
 public class PlayerController : MonoBehaviour
 {
-    bool isSooting = false;
+    //bool isSooting = false;
     public float comebackTime;
 
     public GameObject swordPrefab;
     public GameObject swordSpawnPoint;
     private GameObject TestPrefab;
-    //public ThrowSword throwSword;
 
     public float moveSpeed = 5f;
     private Vector2 moveInput;
@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     public float DashCoolTime;//쿨타임
     public PlayerState playerState;
     public float dashSpeed;
+
+    bool isReturnSword = false;
 
     void Start()
     {
@@ -58,14 +60,12 @@ public class PlayerController : MonoBehaviour
                 if(TestPrefab != null)
                 {
                     Debug.Log("돌아와");
-                    comebackTime += Time.deltaTime / 5;
-                    TestPrefab.transform.position = Vector3.Lerp(TestPrefab.transform.position, transform.position, comebackTime);
-
-                    if (TestPrefab.transform.position == transform.position)
+                    if (isReturnSword == false)//움직이기 가능
                     {
-                        Destroy(TestPrefab);//돌아왔다면 없어져
-
-                        playerState= PlayerState.Move;
+                        //코루틴이 한번만 작동되도록 설정.
+                        isReturnSword = true;
+                        playerState = PlayerState.Move;
+                        StartCoroutine(ReturnSword());
                     }
                 }
                 else
@@ -103,23 +103,34 @@ public class PlayerController : MonoBehaviour
             TestPrefab = Instantiate(swordPrefab, swordSpawnPoint.transform.position, transform.rotation);//스폰포지션에서 발사
             comebackTime = 0;
         }
-        //else//프리팹이 있으면
-        //{
-        //        Debug.Log("돌아와");
-        //        comebackTime += Time.deltaTime / 5;
-        //        TestPrefab.transform.position = Vector3.Lerp(TestPrefab.transform.position, transform.position, comebackTime);
-                
-        //    if(TestPrefab.transform.position==transform.position)
-        //        Destroy(TestPrefab);//돌아왔다면 없어져
-        //}
         playerState = PlayerState.Move;
+    }
+
+    IEnumerator ReturnSword()
+    {
+        float _distance = Vector3.Distance(TestPrefab.transform.position, transform.position);//거리계산
+
+        Debug.Log(_distance);
+
+        while (_distance > 0.7f)
+        {
+            _distance = Vector3.Distance(TestPrefab.transform.position, transform.position);
+
+            comebackTime += Time.deltaTime / 10;
+            TestPrefab.transform.position = Vector3.Lerp(TestPrefab.transform.position, transform.position, comebackTime);
+            yield return new WaitForSeconds(0.01f);//딜레이
+        }
+        Destroy(TestPrefab);
+        isReturnSword = false;
+
+        yield break;
     }
 
     IEnumerator IBack()
     {
         yield return new WaitForSeconds(0.5f);
 
-        isSooting = true;
+        //isSooting = true;
     }
 
     public void OnMove(InputAction.CallbackContext context)
