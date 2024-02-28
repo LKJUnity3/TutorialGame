@@ -5,12 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class JHSceneMove : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.name == "p")
@@ -18,5 +12,4 @@ public class JHSceneMove : MonoBehaviour
             SceneManager.LoadScene("JHScene");
         }
     }
-
 }

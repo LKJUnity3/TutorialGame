@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1510143991882835821}
   - component: {fileID: -1698255733152223389}
   - component: {fileID: 1412847119036872621}
+  - component: {fileID: 1145841784495149480}
   m_Layer: 0
   m_Name: Wall_DoorStand
   m_TagString: Untagged
@@ -117,5 +118,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d832cc654ec7399488f24f794cb3992c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1145841784495149480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8644115839786080152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236f7632b4c18c94f8a4d45125f3b623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
