@@ -14,7 +14,7 @@ public class dotoriColor : MonoBehaviour
     {
         BossTrans = Boss.position;
         target.position = new Vector3(target.position.x, 0, target.position.z);
-        gameObject.GetComponentInChildren<Renderer>().material.color = Color.black;
+        gameObject.GetComponentInChildren<Renderer>().material.color = Color.white;
     }
     
     private void Setup(Transform player)
@@ -28,7 +28,7 @@ public class dotoriColor : MonoBehaviour
     {
         if ( Boss != null)
         {
-            time += Time.deltaTime / 5;
+            time += Time.deltaTime / 2;
             Vector3 v = Vector3.Lerp(BossTrans, target.position, time);
             transform.position = v;
         }
