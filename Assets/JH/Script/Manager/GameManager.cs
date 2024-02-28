@@ -1,22 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public GameObject Player;
+
     public int[] colorList = new int[3];
+
+  
 
     private void Awake()
     {
         if(instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(instance.gameObject);
         }
         else
         {
             Destroy(gameObject);
+            return;
         }
     }
 
@@ -31,4 +38,5 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
 }
