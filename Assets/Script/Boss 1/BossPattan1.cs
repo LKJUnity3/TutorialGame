@@ -13,9 +13,11 @@ public class BossPattan1 : LookBoss
 
     private Animator animator;
     private Rigidbody _rigidbody;
+    private bool MoveOn;
 
     void Start()
     {
+        MoveOn = true;
         data.targetTransform = target;
         StartCoroutine(Move());
         _rigidbody = GetComponent<Rigidbody>();
@@ -36,7 +38,7 @@ public class BossPattan1 : LookBoss
 
     IEnumerator Move()
     {
-        while(true)
+        while (MoveOn)
         {
             yield return new WaitForFixedUpdate();
             Vector3 targetPosition = targetPos[_index].transform.position;
@@ -67,7 +69,8 @@ public class BossPattan1 : LookBoss
     }
     public void BossDie()
     {
-        //StopCoroutine(Move());
+        MoveOn = false;
+        StopCoroutine(Move());
         _rigidbody.velocity = Vector3.zero;
         animator.SetTrigger("Die");
     }
