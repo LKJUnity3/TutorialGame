@@ -20,7 +20,6 @@ public class Boss3Attack : MonoBehaviour
     {
         if (coll.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Ãæµ¹");
             animator.SetTrigger("@Jump");
             StartCoroutine(Attack());
         }

@@ -64,7 +64,6 @@ public class AttackController2 : MonoBehaviour
     {
         if (coll.gameObject.CompareTag("Player"))
         {
-            Debug.Log("´ÙÀÌ");
             DestroyOn();
         }
     }

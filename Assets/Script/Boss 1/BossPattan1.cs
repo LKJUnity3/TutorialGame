@@ -12,11 +12,13 @@ public class BossPattan1 : LookBoss
     int _index = 0;
 
     private Animator animator;
+    private Rigidbody _rigidbody;
 
     void Start()
     {
         data.targetTransform = target;
         StartCoroutine(Move());
+        _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
     }
 
@@ -24,6 +26,11 @@ public class BossPattan1 : LookBoss
     private void FixedUpdate()
     {
         LookTarget();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            BossDie();
+        }
     }
 
 
@@ -57,5 +64,11 @@ public class BossPattan1 : LookBoss
                 transform.Translate(direction * speed * Time.deltaTime, Space.World);
             }
         }
+    }
+    public void BossDie()
+    {
+        //StopCoroutine(Move());
+        _rigidbody.velocity = Vector3.zero;
+        animator.SetTrigger("Die");
     }
 }
