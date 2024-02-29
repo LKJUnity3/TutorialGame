@@ -27,12 +27,18 @@ public class SceneController : MonoBehaviour
         {
             entering = true;
             SceneManager.LoadScene("MainScene");
+            Time.timeScale = 1;
         }
     }
 
     public void GameStartBtn()
     {
         SceneManager.LoadScene("MainScene");
+    }
+
+    public void MoveStartSceneBtn()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 
 }
