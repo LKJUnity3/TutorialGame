@@ -31,12 +31,6 @@ public class PlayerAnimController : PlayerAnimation
         animator.SetTrigger(IsShootingSword);
     }
 
-    public void MoveShootSword()
-    {
-        animator.SetBool(IsMoving, false);
-        animator.SetTrigger(IsShootingSword);
-    }
-
     public void Die()
     {
 

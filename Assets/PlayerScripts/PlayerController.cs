@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(moveDirection);
         transform.position += (moveDirection * moveSpeed * Time.deltaTime);
 
-        animComtroller.Move();
+        //animComtroller.Move();
     }
 
     public void Dash()
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
             TestPrefab.transform.position = Vector3.Lerp(TestPrefab.transform.position, transform.position, comebackTime);
             yield return new WaitForSeconds(0.01f);//딜레이
         }
-        animComtroller.MoveShootSword();
+        animComtroller.ShootSword();
         Destroy(TestPrefab);
         isReturnSword = false;
 
@@ -145,6 +145,11 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>(); //입력받아서 움직임
         moveDirection = new Vector3(moveInput.x, 0f, moveInput.y); //방향설정
+
+        if(context.started)
+        {
+            animComtroller.Move();
+        }
 
         if (context.canceled)
         {
