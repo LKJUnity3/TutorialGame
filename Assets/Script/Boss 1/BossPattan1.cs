@@ -11,11 +11,13 @@ public class BossPattan1 : LookBoss
     [SerializeField] private Transform[] targetPos; 
     int _index = 0;
 
+    private Animator animator;
 
     void Start()
     {
         data.targetTransform = target;
         StartCoroutine(Move());
+        animator = GetComponentInChildren<Animator>();
     }
 
 
@@ -41,6 +43,7 @@ public class BossPattan1 : LookBoss
                 transform.position = new Vector3(targetPos[_index].position.x, transform.position.y, targetPos[_index].position.z);
                 _index++;
 
+                animator.SetTrigger("@Jump");
                 ProjectileManager.instance.AttackProjectiles1(data,gameObject);
 
                 if (_index >= targetPos.Length)

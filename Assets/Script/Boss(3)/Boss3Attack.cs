@@ -8,10 +8,12 @@ public class Boss3Attack : MonoBehaviour
     public Transform target;
     [SerializeField] AttackSO data;
 
-
+    private Animator animator;
+    
     private void Start()
     {
         data.targetTransform = target;
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void OnCollisionEnter(Collision coll)
@@ -19,6 +21,7 @@ public class Boss3Attack : MonoBehaviour
         if (coll.gameObject.CompareTag("Ground"))
         {
             Debug.Log("Ãæµ¹");
+            animator.SetTrigger("@Jump");
             StartCoroutine(Attack());
         }
     }
@@ -26,7 +29,7 @@ public class Boss3Attack : MonoBehaviour
     IEnumerator Attack()
     {
 
-        float rand = Random.Range(0, 1.5f);
+        float rand = Random.Range(0, 0.5f);
         yield return new WaitForSeconds(rand);
         int i = 0;
         while(i < Repet)
