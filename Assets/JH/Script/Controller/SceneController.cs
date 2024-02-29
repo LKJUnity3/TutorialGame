@@ -33,6 +33,7 @@ public class SceneController : MonoBehaviour
     public void GameStartBtn()
     {
         SceneManager.LoadScene("MainScene");
+        Time.timeScale = 1;
     }
 
     public void GameEndBtn()

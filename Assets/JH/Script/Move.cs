@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Move : MonoBehaviour
 {
@@ -9,8 +10,12 @@ public class Move : MonoBehaviour
     private CapsuleCollider capsuleCollider;
     public static Move instance;
 
+    Scene SceneName;
+
     private void Awake()
     {
+        SceneName = SceneManager.GetActiveScene();
+
         if (instance == null)
         {
             instance = this;

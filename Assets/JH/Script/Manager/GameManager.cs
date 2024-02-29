@@ -8,12 +8,17 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    //public Transform player;
+
     public GameObject gameOver;
     public GameObject gameClear;
     public TMP_Text timeNumTxt;
+    public TMP_Text bestNumTxt;
 
     float sec;
     int min;
+    float bestTimeSec;
+    int bestTimeMin;
 
     public int[] colorList = new int[3];
 
@@ -23,7 +28,7 @@ public class GameManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance.gameObject);
+            //DontDestroyOnLoad(instance.gameObject);
         }
         else
         {
@@ -35,7 +40,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1;
+        //player = GetComponent<Transform>();       
     }
 
     // Update is called once per frame
@@ -62,9 +67,10 @@ public class GameManager : MonoBehaviour
    }
 
     public void GameClear()
-    {
+    {  
         timeNumTxt.text = string.Format("{0:D2}:{1:D2}", min, (int)sec);
         gameClear.SetActive(true);       
         Time.timeScale = 0;
     }
+
 }
