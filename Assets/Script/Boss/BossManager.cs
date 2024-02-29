@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject Boss;
     public static BossManager instance;
     public GameObject colorSpherePrefab;
     public int[] colorList = new int[3];
@@ -18,22 +20,33 @@ public class BossManager : MonoBehaviour
 
     public void Start()
     {
-        Instantiate(colorSpherePrefab);
+        SpawnDotoriPrefab();
     }
 
     public void CheckColorCount(int state)
     {
-        if (colorList[hitCount] == state)
+         if (colorList[hitCount] == state)
         {
             hitCount++;
             Debug.Log("True");
+            if (hitCount == 3)
+            {
+                Destroy(Boss);
+            }
         }
         else
         {
             hitCount = 0;
             Debug.Log("False");
-            Instantiate(colorSpherePrefab);
+            SpawnDotoriPrefab();
         }
+
     }
-    
+
+
+    private void SpawnDotoriPrefab()
+    {
+        GameObject Clone = Instantiate(colorSpherePrefab);
+        Clone.transform.position = new Vector3(0, 4, 0);
+    }
 }
