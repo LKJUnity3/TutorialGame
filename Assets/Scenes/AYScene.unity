@@ -349,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animComtroller: {fileID: 511902669}
   comebackTime: 0
-  swordPrefab: {fileID: 7642643158789191654, guid: d722314387c98ce4792786241ff30c9c, type: 3}
+  swordPrefab: {fileID: 7850836710057702593, guid: 46a5dd23b9a8bbb4ea6f3719e44e243d, type: 3}
   swordSpawnPoint: {fileID: 852984779}
   moveSpeed: 5
   dashTime: 0.2
