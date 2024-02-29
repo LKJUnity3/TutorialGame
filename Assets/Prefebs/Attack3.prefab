@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 879689424165501033}
   - component: {fileID: 4805119081323114719}
   - component: {fileID: 2907588933266052548}
-  m_Layer: 0
-  m_Name: Attack2
+  - component: {fileID: 6918198419126196815}
+  m_Layer: 6
+  m_Name: Attack3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +57,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -76,7 +77,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -84,6 +85,21 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6918198419126196815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895526983216113257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68ad99236a3b1d4e9155f101b4e4ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 7
+  moveForce: 15
+  _rigidbody: {fileID: 4805119081323114719}
 --- !u!1 &9127670638274049027
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +111,7 @@ GameObject:
   - component: {fileID: 3626878960636745383}
   - component: {fileID: 7983081536040610445}
   - component: {fileID: 5621933164983473320}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Star_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}

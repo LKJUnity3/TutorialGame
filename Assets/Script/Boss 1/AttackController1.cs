@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackController : MonoBehaviour
+public class AttackController1 : MonoBehaviour
 {
     private Rigidbody _rigidbody;
     public AttackSO data;
@@ -35,8 +35,8 @@ public class AttackController : MonoBehaviour
             //딜
             Destroy(gameObject);
         }
-
         //시간남으면 오브젝트 벽에 부딪치는거까지
     }
+
 
 }

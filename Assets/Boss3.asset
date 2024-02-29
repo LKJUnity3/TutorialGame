@@ -18,3 +18,5 @@ MonoBehaviour:
   minProjectiles: 1
   maxProjectiles: 2
   angleBetweenProjectiles: 0
+  minMoveForce: 8
+  maxMoveForce: 15
