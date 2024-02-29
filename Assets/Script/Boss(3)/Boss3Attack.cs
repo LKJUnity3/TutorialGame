@@ -9,11 +9,13 @@ public class Boss3Attack : MonoBehaviour
     [SerializeField] AttackSO data;
 
     private Animator animator;
-    
+    SpawnDotori spawnDotori;
+
     private void Start()
     {
         data.targetTransform = target;
         animator = GetComponentInChildren<Animator>();
+        spawnDotori = GetComponent<SpawnDotori>();
     }
 
     private void OnCollisionEnter(Collision coll)
@@ -21,7 +23,14 @@ public class Boss3Attack : MonoBehaviour
         if (coll.gameObject.CompareTag("Ground"))
         {
             animator.SetTrigger("@Jump");
-            StartCoroutine(Attack());
+            if(!spawnDotori.IsNullReturn())
+            {
+                spawnDotori.DotoriSpawn();
+            }
+            else
+            {
+                StartCoroutine(Attack());
+            }
         }
     }
 
