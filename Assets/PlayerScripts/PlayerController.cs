@@ -16,7 +16,7 @@ public enum PlayerState
 
 public class PlayerController : MonoBehaviour
 {
-    //bool isSooting = false;
+    public PlayerAnimController animComtroller;
     public float comebackTime;
 
     public GameObject swordPrefab;
@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         playerState = PlayerState.Move;
         DashCoolTime = 2.2f;
+        animComtroller = GetComponent<PlayerAnimController>();
     }
 
     void Update()
@@ -50,6 +51,9 @@ public class PlayerController : MonoBehaviour
 
         switch (playerState)
         {
+            //case PlayerState.None:
+            //    animComtroller.Standing();
+            //    break;
             case PlayerState.Move:
                 Move();
                 break;
@@ -57,6 +61,7 @@ public class PlayerController : MonoBehaviour
                 Dash();
                 break;
             case PlayerState.Shoot:
+                
                 if(TestPrefab != null)
                 {
                     Debug.Log("돌아와");
@@ -82,6 +87,7 @@ public class PlayerController : MonoBehaviour
             return;
         transform.rotation = Quaternion.LookRotation(moveDirection);
         transform.position += (moveDirection * moveSpeed * Time.deltaTime);
+        animComtroller.Move();
     }
 
     public void Dash()
@@ -100,6 +106,7 @@ public class PlayerController : MonoBehaviour
     {
         if (TestPrefab == null)
         {
+            animComtroller.ShootSword();
             TestPrefab = Instantiate(swordPrefab, swordSpawnPoint.transform.position, transform.rotation);//스폰포지션에서 발사
             comebackTime = 0;
         }
@@ -115,11 +122,11 @@ public class PlayerController : MonoBehaviour
         while (_distance > 0.7f)
         {
             _distance = Vector3.Distance(TestPrefab.transform.position, transform.position);
-
             comebackTime += Time.deltaTime / 10;
             TestPrefab.transform.position = Vector3.Lerp(TestPrefab.transform.position, transform.position, comebackTime);
             yield return new WaitForSeconds(0.01f);//딜레이
         }
+        animComtroller.ShootSword();
         Destroy(TestPrefab);
         isReturnSword = false;
 
@@ -137,6 +144,12 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>(); //입력받아서 움직임
         moveDirection = new Vector3(moveInput.x, 0f, moveInput.y); //방향설정
+
+        if (context.canceled)
+        {
+            animComtroller.Standing();
+            animComtroller.ExitMove();
+        }
     }
 
     public void OnDash(InputAction.CallbackContext context)
