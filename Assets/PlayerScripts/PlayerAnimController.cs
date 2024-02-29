@@ -31,4 +31,14 @@ public class PlayerAnimController : PlayerAnimation
         animator.SetBool(IsStanding, true);
         animator.SetTrigger(IsShootingSword);
     }
+
+    public void Die()
+    {
+
+    }
+
+    public void Victory()
+    {
+
+    }
 }
