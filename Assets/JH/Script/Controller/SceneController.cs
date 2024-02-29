@@ -35,4 +35,9 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 
+    public void GameEndBtn()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
+
 }
