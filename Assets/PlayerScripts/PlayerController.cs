@@ -108,6 +108,7 @@ public class PlayerController : MonoBehaviour
         if (TestPrefab == null)
         {
             animComtroller.ShootSword();
+
             TestPrefab = Instantiate(swordPrefab, swordSpawnPoint.transform.position, transform.rotation);//스폰포지션에서 발사
             comebackTime = 0;
         }
@@ -125,6 +126,7 @@ public class PlayerController : MonoBehaviour
             _distance = Vector3.Distance(TestPrefab.transform.position, transform.position);
             comebackTime += Time.deltaTime / 10;
             TestPrefab.transform.position = Vector3.Lerp(TestPrefab.transform.position, transform.position, comebackTime);
+            TestPrefab.transform.rotation = Quaternion.LookRotation(transform.position - TestPrefab.transform.position);//돌아올때 플레이어 방향으로
             yield return new WaitForSeconds(0.01f);//딜레이
         }
         animComtroller.ShootSword();
