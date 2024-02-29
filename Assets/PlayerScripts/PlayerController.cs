@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
             return;
         transform.rotation = Quaternion.LookRotation(moveDirection);
         transform.position += (moveDirection * moveSpeed * Time.deltaTime);
+
         animComtroller.Move();
     }
 
@@ -126,7 +127,7 @@ public class PlayerController : MonoBehaviour
             TestPrefab.transform.position = Vector3.Lerp(TestPrefab.transform.position, transform.position, comebackTime);
             yield return new WaitForSeconds(0.01f);//µÙ∑π¿Ã
         }
-        animComtroller.ShootSword();
+        animComtroller.MoveShootSword();
         Destroy(TestPrefab);
         isReturnSword = false;
 

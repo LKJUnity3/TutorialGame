@@ -9,7 +9,7 @@ public class ThrowSword : MonoBehaviour
     public float swordMoveTime;
     public float swordMoveStopTime=2f;
 
-    public float comebackTime;
+    //public float comebackTime;
 
 
     // Start is called before the first frame update
