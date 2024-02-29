@@ -55,7 +55,7 @@ public class ProjectileManager : MonoBehaviour
             GameObject projectile = Instantiate(attackData.AttackPrefab, cur.transform.position, Quaternion.identity);
 
             projectile.transform.parent = attackPrefebParent.transform;
-            projectile.GetComponent<AttackController2>().Shoot(attackData.targetTransform);
+            projectile.GetComponent<AttackController2>().Shoot(attackData.targetTransform, cur,attackData);
         }
     }
 }

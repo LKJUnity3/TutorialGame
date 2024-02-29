@@ -25,7 +25,9 @@ public class Boss3Attack : MonoBehaviour
 
     IEnumerator Attack()
     {
-        yield return new WaitForSeconds(0.1f);
+
+        float rand = Random.Range(0, 1.5f);
+        yield return new WaitForSeconds(rand);
         int i = 0;
         while(i < Repet)
         {

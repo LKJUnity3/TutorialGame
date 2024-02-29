@@ -35,8 +35,8 @@ public class AttackController1 : MonoBehaviour
             //딜
             Destroy(gameObject);
         }
-
         //시간남으면 오브젝트 벽에 부딪치는거까지
     }
+
 
 }
