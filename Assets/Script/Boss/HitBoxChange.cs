@@ -23,7 +23,8 @@ public class HitBoxChange : MonoBehaviour
         GameObject Clone = Instantiate(CubePrefabs, spawnPoints[index]);
         Renderer renderer = Clone.GetComponent<Renderer>();
         Clone.GetComponent<HitCount>().state = index;
-        renderer.material.color = ChangeColor(index); 
+        renderer.material.color = ChangeColor(index);
+        BossManager.instance.GetCube(Clone);
     }
 
     private Color ChangeColor(int index)
@@ -36,4 +37,6 @@ public class HitBoxChange : MonoBehaviour
             _ => Color.white,
         };
     }
+
+
 }
