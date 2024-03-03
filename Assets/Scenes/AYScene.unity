@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &511902662 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 675633823645299265, guid: b453f029c37fb8b4981adedfe6219cd3, type: 3}
-  m_PrefabInstance: {fileID: 4274543469012505926}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &511902667 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9132944483678143397, guid: b453f029c37fb8b4981adedfe6219cd3, type: 3}
@@ -169,8 +164,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1717778694}
+  Boss1: {fileID: 0}
+  Boss2: {fileID: 0}
   Boss3: {fileID: 2068119979}
   colorList: 000000000000000000000000
+  GameOverObj: {fileID: 0}
+  GameClearObj: {fileID: 0}
+  TimeTxt: {fileID: 0}
+  BestTimeTxt: {fileID: 0}
 --- !u!4 &695184824
 Transform:
   m_ObjectHideFlags: 0
@@ -646,8 +647,8 @@ GameObject:
   - component: {fileID: 2068119983}
   - component: {fileID: 2068119982}
   - component: {fileID: 2068119981}
-  - component: {fileID: 2068119980}
   - component: {fileID: 2068119985}
+  - component: {fileID: 2068119986}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -655,24 +656,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2068119980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2068119979}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f4f6a92ebb67cd41890808377048b7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 511902662}
-  LookSpeed: 5
-  jumpForce: 15
-  moveForce: 5
-  MaxtargetDistanse: 20
-  MintargetDistanse: 5
 --- !u!65 &2068119981
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -767,7 +750,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068119979}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -786,6 +769,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2068119986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068119979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c39b9d37dc42c36469b60a51c573c516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  LookSpeed: 2.3
+  data: {fileID: 11400000, guid: 6b680026223b7364aa5b4b71cb3f2edc, type: 2}
+  speed: 10
+  targetPos: []
 --- !u!1001 &4274543469012505926
 PrefabInstance:
   m_ObjectHideFlags: 0

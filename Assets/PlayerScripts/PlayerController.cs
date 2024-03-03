@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator ReturnSword()
     {
+        throwSword.swordSpeed = 1000f;
         float _distance = Vector3.Distance(throwSword.transform.position, transform.position);//거리계산
 
         Debug.Log(_distance);
