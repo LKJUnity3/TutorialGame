@@ -15,10 +15,13 @@ public class BossPattan3 : LookBoss
 
     private Animator animator;
     private Rigidbody _rigidbody;
-    
 
-    void Start()
+
+
+    protected override void Start()
     {
+        base.Start();
+
         bombTrue = true;
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();

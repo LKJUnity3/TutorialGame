@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public TMP_Text TimeTxt;
     public TMP_Text BestTimeTxt;
 
+    //[HideInInspector]
+    public GameObject Boss3;
+
     float time = 0;
 
     private void Awake()
@@ -35,12 +38,12 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        Player = GameObject.Find("Player");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.Find("Player");
 
         if (Player)
         {
@@ -119,6 +122,11 @@ public class GameManager : MonoBehaviour
 
     public void SpawnBoss()
     {
+        if(bossSequence==2)
+        {
+            Boss3 = Instantiate(Boss[bossSequence]);
+            return;
+        }
         Instantiate(Boss[bossSequence]);
     }
 
