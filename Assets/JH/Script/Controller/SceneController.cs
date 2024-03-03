@@ -19,7 +19,7 @@ public class SceneController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(SceneName.name == "MainScene")
+        if(SceneName.name == "MainScene" && GameObject.Find("Player"))
         {
             SceneManager.LoadScene("JHScene");
         }
