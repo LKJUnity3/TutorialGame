@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject Player;
+    public GameObject Boss3;
 
     public int[] colorList = new int[3];
 

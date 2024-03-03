@@ -640,6 +640,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 7406162647087273040, guid: e351dad6147b63840810276dbc7d0cbf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406162647087273040, guid: e351dad6147b63840810276dbc7d0cbf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406162647087273040, guid: e351dad6147b63840810276dbc7d0cbf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7877868825189633710, guid: e351dad6147b63840810276dbc7d0cbf, type: 3}
       propertyPath: m_RootOrder
       value: 5

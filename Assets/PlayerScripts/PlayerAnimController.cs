@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerAnimController : PlayerAnimation
 {
     private static readonly int IsStanding = Animator.StringToHash("IsStanding");
-    private static readonly int IsAttack = Animator.StringToHash("IsAttack");
     private static readonly int IsShootingSword = Animator.StringToHash("IsShootingSword");
     private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+    private static readonly int IsAttack = Animator.StringToHash("IsAttack");
 
     public void Standing()
     {

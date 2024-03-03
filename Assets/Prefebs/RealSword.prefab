@@ -47,10 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e1aff526cea9248bbaa632960b2357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordDamage: 1
   swordSpeed: 1000
   swordMoveTime: 0
   swordMoveStopTime: 2
+  comebackTime: 0
+  RealBoss: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!54 &3216497939024971370
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -93,7 +95,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

@@ -50,6 +50,6 @@ public class BossManager : MonoBehaviour
     private void SpawnDotoriPrefab()
     {
         GameObject Clone = Instantiate(colorSpherePrefab);
-        Clone.transform.position = new Vector3(0, 4, 0);
+        Clone.transform.position = new Vector3(0, 8, 0);
     }
 }
