@@ -9,6 +9,8 @@ public class PlayerAnimController : PlayerAnimation
     private static readonly int IsShootingSword = Animator.StringToHash("IsShootingSword");
     private static readonly int IsMoving = Animator.StringToHash("IsMoving");
     private static readonly int IsAttack = Animator.StringToHash("IsAttack");
+    private static readonly int IsDie = Animator.StringToHash("IsDie");
+    private static readonly int IsWin = Animator.StringToHash("IsWin");
 
     public void Standing()
     {
@@ -33,11 +35,11 @@ public class PlayerAnimController : PlayerAnimation
 
     public void Die()
     {
-
+        animator.SetTrigger(IsDie);
     }
 
     public void Victory()
     {
-
+        animator.SetTrigger(IsWin);
     }
 }

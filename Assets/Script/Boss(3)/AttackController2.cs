@@ -65,6 +65,11 @@ public class AttackController2 : MonoBehaviour
         if (coll.gameObject.CompareTag("Player"))
         {
             DestroyOn();
+            PlayerController player = coll.gameObject.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                GameManager.instance.PlayerDie();
+            }
         }
     }
 

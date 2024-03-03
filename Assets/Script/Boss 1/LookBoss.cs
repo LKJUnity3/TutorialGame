@@ -22,4 +22,5 @@ public class LookBoss : MonoBehaviour
         Quaternion SetRotation = Quaternion.LookRotation(targetDirection);
         transform.rotation = Quaternion.Lerp(transform.rotation, SetRotation, LookSpeed * Time.deltaTime);
     }
+
 }
