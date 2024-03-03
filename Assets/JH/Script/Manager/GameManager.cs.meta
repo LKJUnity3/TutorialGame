@@ -3,7 +3,15 @@ guid: 926c41cf1db87fe49b2c3ad5fa3e0cd7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Player: {instanceID: 0}
+  - Boss1: {fileID: 6973889519156719071, guid: e351dad6147b63840810276dbc7d0cbf, type: 3}
+  - Boss2: {fileID: 8598879759959420719, guid: 95f4af690f991914a99b01fb2e925cef, type: 3}
+  - Boss3: {fileID: 527943847881776903, guid: 84ca2524a3b41914285ee7a34037aaf2, type: 3}
+  - GameOverObj: {instanceID: 0}
+  - GameClearObj: {instanceID: 0}
+  - TimeTxt: {instanceID: 0}
+  - BestTimeTxt: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

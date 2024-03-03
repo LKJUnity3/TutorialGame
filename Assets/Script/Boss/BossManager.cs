@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class BossManager : MonoBehaviour
@@ -10,6 +11,8 @@ public class BossManager : MonoBehaviour
     public GameObject colorSpherePrefab;
     public int[] colorList = new int[3];
     public int hitCount = 0;
+
+    private List<GameObject> cube = new List<GameObject>();
 
     public Animator animator;
 
@@ -35,6 +38,11 @@ public class BossManager : MonoBehaviour
             if (hitCount == 3)
             {
                 animator.SetTrigger("Die");
+                for (int i = 0; i < cube.Count; i++)
+                {
+                    GameManager.instance.DestroyCube(cube[i]);
+                }
+                cube.Clear();
             }
         }
         else
@@ -44,6 +52,11 @@ public class BossManager : MonoBehaviour
             SpawnDotoriPrefab();
         }
 
+    }
+
+    public void GetCube(GameObject game)
+    {
+        cube.Add(game);
     }
 
 

@@ -33,7 +33,7 @@ public class ThrowSword : MonoBehaviour
         //gameObject.transform.rotation = Quaternion.Euler(90, 0, -180);
 
         //게임매니저에 있는 Boss3를 가져와야 함.
-        RealBoss = GameManager.instance.Boss3;
+        RealBoss = GameManager.instance.Boss[2];
         Player = GameManager.instance.Player;
         
     }

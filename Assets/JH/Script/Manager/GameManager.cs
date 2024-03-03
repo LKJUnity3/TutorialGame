@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.iOS;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -9,9 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject Player;
-    public GameObject Boss1;
-    public GameObject Boss2;
-    public GameObject Boss3;
+    public GameObject[] Boss = new GameObject[3];
+    public int bossSequence= 0;
 
     public int[] colorList = new int[3];
 
@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance.gameObject);
         }
         else
         {
@@ -111,4 +110,20 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    public void DestroyBoss(GameObject target)
+    {
+        Destroy(target);
+        bossSequence++;
+        SpawnBoss();
+    }
+
+    public void SpawnBoss()
+    {
+        Instantiate(Boss[bossSequence]);
+    }
+
+    public void DestroyCube(GameObject gameObject)
+    {
+        Destroy(gameObject);
+    }
 }

@@ -6,10 +6,10 @@ using UnityEngine;
 public class HitCount : MonoBehaviour
 {
     public int state;
-    private Weapon weapon;
+    private ThrowSword weapon;
     private void OnTriggerEnter(Collider other)
     {
-        weapon = other.GetComponent<Weapon>();
+        weapon = other.GetComponent<ThrowSword>();
         if (weapon != null)
         {
             BossManager.instance.CheckColorCount(state);
