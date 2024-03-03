@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform playerTransform;
+    Transform playerTransform;
     public float Speed = 0.125f;
+
+    private void Start()
+    {
+        playerTransform = GameManager.instance.Player.transform;
+    }
 
     void FixedUpdate()
     {
