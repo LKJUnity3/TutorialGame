@@ -16,7 +16,7 @@ public enum PlayerState
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerAnimController animComtroller;
+    public PlayerAnimController animController;
     public float comebackTime;
 
     public GameObject swordPrefab;
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         playerState = PlayerState.Move;
         DashCoolTime = 2.2f;
-        animComtroller = GetComponent<PlayerAnimController>();
+        animController = GetComponent<PlayerAnimController>();
     }
 
     void Update()
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
     {
         if (throwSword == null)
         {
-            animComtroller.ShootSword();
+            animController.ShootSword();
             
             GameObject go = Instantiate(swordPrefab, swordSpawnPoint.transform.position, transform.rotation);//스폰포지션에서 발사
             throwSword = go.GetComponent<ThrowSword>();
@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
             throwSword.transform.rotation = Quaternion.LookRotation(transform.position - throwSword.transform.position);//돌아올때 플레이어 방향으로
             yield return null;
         }
-        animComtroller.ShootSword();
+        animController.ShootSword();
         Destroy(throwSword.gameObject);
         isReturnSword = false;
 
@@ -153,13 +153,13 @@ public class PlayerController : MonoBehaviour
 
         if(context.started)
         {
-            animComtroller.Move();
+            animController.Move();
         }
 
         if (context.canceled)
         {
-            animComtroller.Standing();
-            animComtroller.ExitMove();
+            animController.Standing();
+            animController.ExitMove();
         }
     }
 

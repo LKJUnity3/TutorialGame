@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public PlayerController controller;
+    public PlayerAnimController animController;
 
     public GameObject Player;
     public GameObject[] Boss = new GameObject[3];
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text BestTimeTxt;
 
     //[HideInInspector]
-    public GameObject Boss3;
+    public GameObject CurBoss;
 
     float time = 0;
 
@@ -102,6 +103,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        Destroy(CurBoss.GetComponent<Rigidbody>());
         GameOverObj.SetActive(true);
         Time.timeScale = 0;
     }
@@ -116,6 +118,8 @@ public class GameManager : MonoBehaviour
 
     public void DestroyBoss(GameObject target)
     {
+        animController.Victory();
+
         Destroy(target);
         bossSequence++;
         SpawnBoss();
@@ -123,12 +127,14 @@ public class GameManager : MonoBehaviour
 
     public void SpawnBoss()
     {
-        if(bossSequence==2)
-        {
-            Boss3 = Instantiate(Boss[bossSequence]);
-            return;
-        }
-        Instantiate(Boss[bossSequence]);
+        //if(bossSequence==2)
+        //{
+        //    CurBoss = Instantiate(Boss[bossSequence]);
+        //    return;
+        //}
+        //Instantiate(Boss[bossSequence]);
+
+        CurBoss = Instantiate(Boss[bossSequence]);
     }
 
     public void DestroyCube(GameObject gameObject)
@@ -142,7 +148,8 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-
+        animController.Die();
+        GameOver();
         // 1. 보스랑 충돌하면 죽음
         // 2. 클리어 못하면 죽음
         // 보스 or 파티클에 충돌하면 죽음
