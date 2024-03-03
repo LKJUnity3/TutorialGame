@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.InputSystem.iOS;
 
 public class HitBoxChange : MonoBehaviour
 {
+    [SerializeField]
+    private Transform[] spawnPoints = new Transform[3];
     [SerializeField]
     private GameObject CubePrefabs;
     private void Start()
@@ -17,25 +20,20 @@ public class HitBoxChange : MonoBehaviour
 
     private void SpawnCube(int index)
     {
-        GameObject Clone = Instantiate(CubePrefabs);
+        GameObject Clone = Instantiate(CubePrefabs, spawnPoints[index]);
         Renderer renderer = Clone.GetComponent<Renderer>();
-        switch (index)
+        Clone.GetComponent<HitCount>().state = index;
+        renderer.material.color = ChangeColor(index); 
+    }
+
+    private Color ChangeColor(int index)
+    {
+        return index switch
         {
-            case 0:
-                Clone.transform.position = new Vector3 (4, 1, 0);
-                renderer.material.color = Color.red;
-                Clone.GetComponent<HitCount>().state = 0;
-                break;
-            case 1:
-                Clone.transform.position = new Vector3 (-4,1,0);
-                renderer.material.color = Color.green;
-                Clone.GetComponent<HitCount>().state = 1;
-                break;
-            case 2:
-                Clone.transform.position = new Vector3(0, 1, 4);
-                renderer.material.color = Color.blue;
-                Clone.GetComponent<HitCount>().state = 2;
-                break;
-        }
+            0 => Color.red,
+            1 => Color.green,
+            2 => Color.blue,
+            _ => Color.white,
+        };
     }
 }

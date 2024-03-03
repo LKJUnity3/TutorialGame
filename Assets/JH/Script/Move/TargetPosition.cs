@@ -7,7 +7,7 @@ public class TargetPosition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(SceneController.entering == false)
+        if (SceneController.entering == false)
         {
             Move.instance.gameObject.transform.position = new Vector3(0, 2, -21);
         }
@@ -15,7 +15,7 @@ public class TargetPosition : MonoBehaviour
         {
             Move.instance.gameObject.transform.position = transform.position;
         }
-        
+
     }
 
 }
