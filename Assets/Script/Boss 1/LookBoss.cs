@@ -8,6 +8,10 @@ public class LookBoss : MonoBehaviour
     public Transform target; //플레이어
     public float LookSpeed = 5f;
 
+    private void Start()
+    {
+        target = GameManager.instance.Player.transform;
+    }
 
     public void LookTarget()
     {

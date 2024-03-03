@@ -13,6 +13,7 @@ public class Boss3Attack : MonoBehaviour
 
     private void Start()
     {
+        target = GameManager.instance.Player.transform;
         data.targetTransform = target;
         animator = GetComponentInChildren<Animator>();
         spawnDotori = GetComponent<SpawnDotori>();
