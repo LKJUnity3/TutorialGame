@@ -118,10 +118,16 @@ public class GameManager : MonoBehaviour
 
     public void DestroyBoss(GameObject target)
     {
-        animController.Victory();
-
-        Destroy(target);
-        bossSequence++;
+        Destroy(target);   
+        if(bossSequence != 4)
+        {
+            bossSequence++;
+        }
+        else
+        {
+            animController.Victory();
+            GameClear();
+        }
         SpawnBoss();
     }
 
