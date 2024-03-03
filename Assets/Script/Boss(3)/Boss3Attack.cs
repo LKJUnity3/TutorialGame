@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Boss3Attack : MonoBehaviour
 {
     public int Repet = 9;
     public Transform target;
     [SerializeField] AttackSO data;
+
+    private PlayerController playerController;
 
     private Animator animator;
     SpawnDotori spawnDotori;
@@ -33,6 +36,13 @@ public class Boss3Attack : MonoBehaviour
                 StartCoroutine(Attack());
             }
         }
+        
+        playerController = coll.transform.GetComponent<PlayerController>();
+        if (playerController != null )
+        {
+            GameManager.instance.PlayerDie();
+        }
+        
     }
 
     IEnumerator Attack()
