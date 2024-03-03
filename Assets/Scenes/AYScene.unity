@@ -349,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animComtroller: {fileID: 511902669}
   comebackTime: 0
-  swordPrefab: {fileID: 7642643158789191654, guid: d722314387c98ce4792786241ff30c9c, type: 3}
+  swordPrefab: {fileID: 7929782880664031422, guid: 457fc407976d6a743a75a9caddc91123, type: 3}
   swordSpawnPoint: {fileID: 852984779}
   moveSpeed: 5
   dashTime: 0.2
@@ -419,7 +419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852984779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.31}
+  m_LocalPosition: {x: 0, y: 0.497, z: 0.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

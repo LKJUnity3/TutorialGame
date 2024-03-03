@@ -28,7 +28,6 @@ public class PlayerAnimController : PlayerAnimation
 
     public void ShootSword()
     {
-        animator.SetBool(IsStanding, true);
         animator.SetTrigger(IsShootingSword);
     }
 
