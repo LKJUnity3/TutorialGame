@@ -10,9 +10,11 @@ public class HitCount : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         weapon = other.GetComponent<Weapon>();
-        if (weapon != null )
+        if (weapon != null)
         {
             BossManager.instance.CheckColorCount(state);
         }
     }
+
+    
 }
