@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject swordPrefab;
     public GameObject swordSpawnPoint;
-    private GameObject TestPrefab;
+
+    public ThrowSword throwSword;
 
     public float moveSpeed = 5f;
     private Vector2 moveInput;
@@ -62,7 +63,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.Shoot:
                 
-                if(TestPrefab != null)
+                if(throwSword != null)
                 {
                     Debug.Log("돌아와");
                     if (isReturnSword == false)//움직이기 가능
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
                         isReturnSword = true;
                         playerState = PlayerState.Move;
                         StartCoroutine(ReturnSword());
+                        throwSword.BringTheBoss3();
                     }
                 }
                 else
@@ -104,11 +106,12 @@ public class PlayerController : MonoBehaviour
 
     public void ShootSword()
     {
-        if (TestPrefab == null)
+        if (throwSword == null)
         {
             animComtroller.ShootSword();
-
-            TestPrefab = Instantiate(swordPrefab, swordSpawnPoint.transform.position, transform.rotation);//스폰포지션에서 발사
+            
+            GameObject go = Instantiate(swordPrefab, swordSpawnPoint.transform.position, transform.rotation);//스폰포지션에서 발사
+            throwSword = go.GetComponent<ThrowSword>();
             comebackTime = 0;
         }
         playerState = PlayerState.Move;
@@ -116,20 +119,20 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator ReturnSword()
     {
-        float _distance = Vector3.Distance(TestPrefab.transform.position, transform.position);//거리계산
+        float _distance = Vector3.Distance(throwSword.transform.position, transform.position);//거리계산
 
         Debug.Log(_distance);
 
         while (_distance > 1.5f)
         {
-            _distance = Vector3.Distance(TestPrefab.transform.position, transform.position);
+            _distance = Vector3.Distance(throwSword.transform.position, transform.position);
             comebackTime += Time.deltaTime / 10;
-            TestPrefab.transform.position = Vector3.Lerp(TestPrefab.transform.position, transform.position, comebackTime);
-            TestPrefab.transform.rotation = Quaternion.LookRotation(transform.position - TestPrefab.transform.position);//돌아올때 플레이어 방향으로
-            yield return new WaitForSeconds(0.01f);//딜레이
+            throwSword.transform.position = Vector3.Lerp(throwSword.transform.position, transform.position, comebackTime);
+            throwSword.transform.rotation = Quaternion.LookRotation(transform.position - throwSword.transform.position);//돌아올때 플레이어 방향으로
+            yield return null;
         }
         animComtroller.ShootSword();
-        Destroy(TestPrefab);
+        Destroy(throwSword.gameObject);
         isReturnSword = false;
 
         yield break;

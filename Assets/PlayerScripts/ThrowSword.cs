@@ -18,11 +18,17 @@ public class ThrowSword : MonoBehaviour
     public GameObject RealBoss;
     public GameObject Player;
 
+    public BossPattan3 boss;
+
     void Start()
     {
         swordMoveTime = 0;
         GetComponent<Rigidbody>().AddForce(transform.forward*swordSpeed);
         //gameObject.transform.rotation = Quaternion.Euler(90, 0, -180);
+
+        //게임매니저에 있는 Boss3를 가져와야 함.
+        RealBoss = GameManager.instance.Boss3;
+        Player = GameManager.instance.Player;
 
     }
 
@@ -45,13 +51,15 @@ public class ThrowSword : MonoBehaviour
 
         
     }
-
-    private  void OnCollisionEnter(Collision RealBoss)
+    private void OnTriggerEnter(Collider other)
     {
-        BossPattan3 boss = RealBoss.gameObject.GetComponent<BossPattan3>();
+        boss = other.GetComponent<BossPattan3>();
 
-        if(boss!=null)
-         BringTheBoss();
+        if (boss != null)
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;//그자리에서 멈춤
+            //StartCoroutine(BringTheBoss());
+        }
     }
 
     IEnumerator BringTheBoss()
@@ -67,6 +75,14 @@ public class ThrowSword : MonoBehaviour
             yield return null;
         }
         yield break;
+    }
+
+    public void BringTheBoss3()
+    {
+        if (boss != null)
+        {
+           StartCoroutine(BringTheBoss());
+        }
     }
 
     //2초가 됐을떄 방향을 나를 바라보게.
