@@ -15,6 +15,7 @@ public class SpawnDotori : MonoBehaviour
 
     private void Start()
     {
+        Player = GameManager.instance.Player.transform;
         //DotoriSpawn();
     }
     private void Update()
