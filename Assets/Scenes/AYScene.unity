@@ -186,7 +186,7 @@ PrefabInstance:
     - target: {fileID: 7413344840680693326, guid: cc91c8ba8b9a34f4d99e70d721f60b64, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 89c758e2a434c3040b1d0cc90dde0e44, type: 2}
+      objectReference: {fileID: 9100000, guid: fdd65e749cfb2d34891c3b85e62009d4, type: 2}
     - target: {fileID: 7647134206250791342, guid: cc91c8ba8b9a34f4d99e70d721f60b64, type: 3}
       propertyPath: m_Name
       value: FemaleCharacterPBR (1)
