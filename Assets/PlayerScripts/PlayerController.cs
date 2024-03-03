@@ -102,7 +102,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     public void ShootSword()
     {
         if (TestPrefab == null)
@@ -121,7 +120,7 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log(_distance);
 
-        while (_distance > 0.7f)
+        while (_distance > 1.5f)
         {
             _distance = Vector3.Distance(TestPrefab.transform.position, transform.position);
             comebackTime += Time.deltaTime / 10;
