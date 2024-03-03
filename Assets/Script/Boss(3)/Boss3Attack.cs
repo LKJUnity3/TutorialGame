@@ -46,6 +46,4 @@ public class Boss3Attack : MonoBehaviour
             i++;
         }
     }
-
-
 }
