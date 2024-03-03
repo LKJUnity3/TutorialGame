@@ -11,6 +11,7 @@ public class SpawnDotori : MonoBehaviour
     private float time = 5f;
     [SerializeField]
     private Transform Player;
+    Animator animator;
 
     private void Start()
     {
@@ -35,12 +36,14 @@ public class SpawnDotori : MonoBehaviour
         GameObject Clone = Instantiate(dotoriPrefab);
         Clone.transform.position = transform.position;
         Clone.GetComponent<DotoriMove>().Setup(Player,this);
-        Clone.GetComponent<Renderer>().material.color = Color.black;
+        Clone.GetComponentInChildren<Renderer>().material.color = Color.black;
+        animator = Clone.GetComponentInChildren<Animator>();
     }
 
     public void DestroyDotori(GameObject gameObject)
     {
-        Destroy(gameObject);
+        Destroy(gameObject,0.5f);
+        animator.SetBool("isBomb", true);
         isNull = true;
     }
 
