@@ -15,8 +15,10 @@ public class BossPattan1 : LookBoss
     private Rigidbody _rigidbody;
     private bool MoveOn;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         MoveOn = true;
         data.targetTransform = target;
         StartCoroutine(Move());
