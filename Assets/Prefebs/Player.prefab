@@ -33,7 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1757229672573722221}
+  - {fileID: 429108125640636591}
   - {fileID: 8721550207443613049}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -182,11 +182,12 @@ MonoBehaviour:
   comebackTime: 0
   swordPrefab: {fileID: 7929782880664031422, guid: 457fc407976d6a743a75a9caddc91123, type: 3}
   swordSpawnPoint: {fileID: 9118915479463097074}
+  throwSword: {fileID: 0}
   moveSpeed: 5
   dashTime: 0.2
   DashCoolTime: 0
   playerState: 0
-  dashSpeed: 16
+  dashSpeed: 25
 --- !u!114 &8382049955319164044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,7 +540,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc91c8ba8b9a34f4d99e70d721f60b64, type: 3}
---- !u!4 &1757229672573722221 stripped
+--- !u!4 &429108125640636591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7019920669011962644, guid: cc91c8ba8b9a34f4d99e70d721f60b64, type: 3}
   m_PrefabInstance: {fileID: 7250719769264542651}

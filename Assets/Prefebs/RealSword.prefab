@@ -47,12 +47,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e1aff526cea9248bbaa632960b2357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordSpeed: 1000
+  swordSpeed: 1500
   swordMoveTime: 0
-  swordMoveStopTime: 2
+  swordMoveStopTime: 0.5
   comebackTime: 0
   RealBoss: {fileID: 0}
   Player: {fileID: 0}
+  boss2: {fileID: 0}
+  boss3: {fileID: 0}
+  swordVariant: {fileID: 8125540375599721727}
+  swordRigidbody: {fileID: 3216497939024971370}
 --- !u!54 &3216497939024971370
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -161,6 +165,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8643315968941643028, guid: 46a5dd23b9a8bbb4ea6f3719e44e243d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8500231541972491216, guid: 46a5dd23b9a8bbb4ea6f3719e44e243d, type: 3}
     - {fileID: 8085491317134502504, guid: 46a5dd23b9a8bbb4ea6f3719e44e243d, type: 3}
@@ -172,5 +180,10 @@ PrefabInstance:
 --- !u!4 &6955980285060634512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7473748634000273019, guid: 46a5dd23b9a8bbb4ea6f3719e44e243d, type: 3}
+  m_PrefabInstance: {fileID: 518070087623473643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8125540375599721727 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8643315968941643028, guid: 46a5dd23b9a8bbb4ea6f3719e44e243d, type: 3}
   m_PrefabInstance: {fileID: 518070087623473643}
   m_PrefabAsset: {fileID: 0}

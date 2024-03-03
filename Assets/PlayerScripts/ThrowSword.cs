@@ -18,18 +18,24 @@ public class ThrowSword : MonoBehaviour
     public GameObject RealBoss;
     public GameObject Player;
 
-    public BossPattan3 boss;
+    public BossPattan1 boss2;
+    public BossPattan3 boss3;
+
+    [SerializeField]
+    private MeshRenderer swordVariant;
+    [SerializeField]
+    private Rigidbody swordRigidbody;
 
     void Start()
     {
         swordMoveTime = 0;
-        GetComponent<Rigidbody>().AddForce(transform.forward*swordSpeed);
+        swordRigidbody.AddForce(transform.forward*swordSpeed);
         //gameObject.transform.rotation = Quaternion.Euler(90, 0, -180);
 
         //게임매니저에 있는 Boss3를 가져와야 함.
-        RealBoss = GameManager.instance.Boss[2];
+        RealBoss = GameManager.instance.Boss3;
         Player = GameManager.instance.Player;
-
+        
     }
 
     void Update()
@@ -37,12 +43,12 @@ public class ThrowSword : MonoBehaviour
         swordMoveTime += Time.deltaTime;
         if( swordMoveTime > swordMoveStopTime)
         {
-            GetComponent<Rigidbody>().velocity = Vector3.zero;//일정시간이 지나면 그자리에서 멈춤
+            swordRigidbody.velocity = Vector3.zero;//일정시간이 지나면 그자리에서 멈춤/ 스타트
             swordMoveTime = 0;
         }
 
         //칼방향을 바라보는 방향으로 발사하고 날라가게함.
-        Vector3 moveDirection = GetComponent<Rigidbody>().velocity.normalized;
+        Vector3 moveDirection = swordRigidbody.velocity.normalized;//스타트
         if (moveDirection != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
@@ -53,12 +59,19 @@ public class ThrowSword : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        boss = other.GetComponent<BossPattan3>();
+        boss3 = other.GetComponent<BossPattan3>();
+        boss2 = other.GetComponent<BossPattan1>();
 
-        if (boss != null)
+        if (boss3 != null)
         {
-            GetComponent<Rigidbody>().velocity = Vector3.zero;//그자리에서 멈춤
-            //StartCoroutine(BringTheBoss());
+            Debug.Log("boss3");
+            swordRigidbody.velocity = Vector3.zero;//그자리에서 멈춤
+            swordVariant.enabled = false;
+        }
+        if (boss2 != null)
+        {
+            gameObject.GetComponent<Collider>().isTrigger = false;
+            swordSpeed = 0;
         }
     }
 
@@ -79,11 +92,9 @@ public class ThrowSword : MonoBehaviour
 
     public void BringTheBoss3()
     {
-        if (boss != null)
+        if (boss3 != null)
         {
            StartCoroutine(BringTheBoss());
         }
     }
-
-    //2초가 됐을떄 방향을 나를 바라보게.
 }

@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public PlayerController controller;
 
     public GameObject Player;
     public GameObject[] Boss = new GameObject[3];
@@ -20,6 +21,9 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text TimeTxt;
     public TMP_Text BestTimeTxt;
+
+    //[HideInInspector]
+    public GameObject Boss3;
 
     float time = 0;
 
@@ -35,13 +39,12 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        Player = GameObject.Find("Player");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.Find("Player");
-
         if (Player)
         {
 
@@ -50,6 +53,7 @@ public class GameManager : MonoBehaviour
         {
 
         }
+        controller = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -119,6 +123,11 @@ public class GameManager : MonoBehaviour
 
     public void SpawnBoss()
     {
+        if(bossSequence==2)
+        {
+            Boss3 = Instantiate(Boss[bossSequence]);
+            return;
+        }
         Instantiate(Boss[bossSequence]);
     }
 
@@ -126,4 +135,17 @@ public class GameManager : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    void PlayerDie()
+    {
+        if (controller.playerState == PlayerState.Dash)
+        {
+            return;
+        }
+
+        // 1. 보스랑 충돌하면 죽음
+        // 2. 클리어 못하면 죽음
+        // 보스 or 파티클에 충돌하면 죽음
+    }
+
 }
