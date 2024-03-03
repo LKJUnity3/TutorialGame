@@ -15,6 +15,7 @@ public class BossPattan3 : LookBoss
 
     private Animator animator;
     private Rigidbody _rigidbody;
+    
 
     void Start()
     {

@@ -11,10 +11,11 @@ public class SpawnDotori : MonoBehaviour
     private float time = 5f;
     [SerializeField]
     private Transform Player;
+    Animator animator;
 
     private void Start()
     {
-        DotoriSpawn();
+        //DotoriSpawn();
     }
     private void Update()
     {
@@ -25,22 +26,30 @@ public class SpawnDotori : MonoBehaviour
             {
                 isNull = false;
                 time = 5f;
-                DotoriSpawn();
+                //DotoriSpawn();
             }
         }
     }
 
-    private void DotoriSpawn()
+    public void DotoriSpawn()
     {
         GameObject Clone = Instantiate(dotoriPrefab);
         Clone.transform.position = transform.position;
         Clone.GetComponent<DotoriMove>().Setup(Player,this);
-        Clone.GetComponent<Renderer>().material.color = Color.black;
+        Clone.GetComponentInChildren<Renderer>().material.color = Color.black;
+        animator = Clone.GetComponentInChildren<Animator>();
     }
 
     public void DestroyDotori(GameObject gameObject)
     {
-        Destroy(gameObject);
+        Destroy(gameObject,0.5f);
+        animator.SetBool("isBomb", true);
         isNull = true;
     }
+
+    public bool IsNullReturn()
+    {
+        return isNull;
+    }
+
 }
