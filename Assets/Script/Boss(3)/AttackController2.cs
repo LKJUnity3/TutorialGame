@@ -7,10 +7,14 @@ public class AttackController2 : MonoBehaviour
 
     public float jumpForce = 30f;
     public float moveForce = 40f;
+    public float DestroyTime = 5f;
 
     public Rigidbody _rigidbody;
 
-
+    private void Start()
+    {
+        Invoke("DestroyOn", DestroyTime);
+    }
     private void Update()
     {
         Vector3 moveDirection = _rigidbody.velocity.normalized;
@@ -56,5 +60,17 @@ public class AttackController2 : MonoBehaviour
         }
     }
 
-    
+    private void OnCollisionEnter(Collision coll)
+    {
+        if (coll.gameObject.CompareTag("Player"))
+        {
+            DestroyOn();
+        }
+    }
+
+    private void DestroyOn()
+    {
+        Destroy(gameObject);
+    }
+
 }

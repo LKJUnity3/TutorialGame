@@ -8,25 +8,36 @@ public class Boss3Attack : MonoBehaviour
     public Transform target;
     [SerializeField] AttackSO data;
 
+    private Animator animator;
+    SpawnDotori spawnDotori;
 
     private void Start()
     {
         data.targetTransform = target;
+        animator = GetComponentInChildren<Animator>();
+        spawnDotori = GetComponent<SpawnDotori>();
     }
 
     private void OnCollisionEnter(Collision coll)
     {
         if (coll.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Ãæµ¹");
-            StartCoroutine(Attack());
+            animator.SetTrigger("@Jump");
+            if(!spawnDotori.IsNullReturn())
+            {
+                spawnDotori.DotoriSpawn();
+            }
+            else
+            {
+                StartCoroutine(Attack());
+            }
         }
     }
 
     IEnumerator Attack()
     {
 
-        float rand = Random.Range(0, 1.5f);
+        float rand = Random.Range(0, 0.5f);
         yield return new WaitForSeconds(rand);
         int i = 0;
         while(i < Repet)

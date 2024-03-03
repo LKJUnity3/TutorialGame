@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animation/EJ.meta
+guid: fdd65e749cfb2d34891c3b85e62009d4
+folderAsset: yes
+DefaultImporter:
+========
 guid: 89c758e2a434c3040b1d0cc90dde0e44
 NativeFormatImporter:
+>>>>>>>> Develop:Assets/Animation/PlayerAnimation.controller.meta
   externalObjects: {}
   mainObjectFileID: 9100000
   userData: 

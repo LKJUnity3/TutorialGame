@@ -13,12 +13,15 @@ public class BossPattan3 : LookBoss
     bool bombTrue;
 
 
+    private Animator animator;
     private Rigidbody _rigidbody;
+    
 
     void Start()
     {
         bombTrue = true;
         _rigidbody = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
         StartCoroutine(Move());
     }
 
@@ -30,6 +33,11 @@ public class BossPattan3 : LookBoss
         {
             bombTrue = false;
             Bomb();
+        }
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            BossDie();
         }
     }
 
@@ -84,5 +92,11 @@ public class BossPattan3 : LookBoss
         {
             return (-transform.forward + randomSet).normalized * moveForce;
         }
+    }
+
+    public void BossDie()
+    {
+        _rigidbody.velocity = Vector3.zero;
+        animator.SetTrigger("Die");
     }
 }

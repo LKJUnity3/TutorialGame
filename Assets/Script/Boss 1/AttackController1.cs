@@ -8,6 +8,7 @@ public class AttackController1 : MonoBehaviour
     public AttackSO data;
     public float _currentDuration = 5;
 
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();

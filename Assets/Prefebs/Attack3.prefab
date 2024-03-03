@@ -97,8 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68ad99236a3b1d4e9155f101b4e4ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 7
+  jumpForce: 5.06
   moveForce: 15
+  DestroyTime: 5
   _rigidbody: {fileID: 4805119081323114719}
 --- !u!1 &9127670638274049027
 GameObject:

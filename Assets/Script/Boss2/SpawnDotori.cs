@@ -14,7 +14,7 @@ public class SpawnDotori : MonoBehaviour
 
     private void Start()
     {
-        DotoriSpawn();
+        //DotoriSpawn();
     }
     private void Update()
     {
@@ -25,12 +25,12 @@ public class SpawnDotori : MonoBehaviour
             {
                 isNull = false;
                 time = 5f;
-                DotoriSpawn();
+                //DotoriSpawn();
             }
         }
     }
 
-    private void DotoriSpawn()
+    public void DotoriSpawn()
     {
         GameObject Clone = Instantiate(dotoriPrefab);
         Clone.transform.position = transform.position;
@@ -43,4 +43,10 @@ public class SpawnDotori : MonoBehaviour
         Destroy(gameObject);
         isNull = true;
     }
+
+    public bool IsNullReturn()
+    {
+        return isNull;
+    }
+
 }

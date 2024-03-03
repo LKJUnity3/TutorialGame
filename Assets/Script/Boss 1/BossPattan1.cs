@@ -11,23 +11,34 @@ public class BossPattan1 : LookBoss
     [SerializeField] private Transform[] targetPos; 
     int _index = 0;
 
+    private Animator animator;
+    private Rigidbody _rigidbody;
+    private bool MoveOn;
 
     void Start()
     {
+        MoveOn = true;
         data.targetTransform = target;
         StartCoroutine(Move());
+        _rigidbody = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
     }
 
 
     private void FixedUpdate()
     {
         LookTarget();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            BossDie();
+        }
     }
 
 
     IEnumerator Move()
     {
-        while(true)
+        while (MoveOn)
         {
             yield return new WaitForFixedUpdate();
             Vector3 targetPosition = targetPos[_index].transform.position;
@@ -41,6 +52,7 @@ public class BossPattan1 : LookBoss
                 transform.position = new Vector3(targetPos[_index].position.x, transform.position.y, targetPos[_index].position.z);
                 _index++;
 
+                animator.SetTrigger("@Jump");
                 ProjectileManager.instance.AttackProjectiles1(data,gameObject);
 
                 if (_index >= targetPos.Length)
@@ -54,5 +66,12 @@ public class BossPattan1 : LookBoss
                 transform.Translate(direction * speed * Time.deltaTime, Space.World);
             }
         }
+    }
+    public void BossDie()
+    {
+        MoveOn = false;
+        StopCoroutine(Move());
+        _rigidbody.velocity = Vector3.zero;
+        animator.SetTrigger("Die");
     }
 }
