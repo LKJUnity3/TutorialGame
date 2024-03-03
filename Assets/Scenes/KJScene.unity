@@ -356,6 +356,7 @@ MonoBehaviour:
   colorSpherePrefab: {fileID: 2047997776447046339, guid: 5c560a9a86bf0164895919adbb23e59f, type: 3}
   colorList: 000000000000000000000000
   hitCount: 0
+  animator: {fileID: 4925131423963587989}
 --- !u!4 &631492775
 Transform:
   m_ObjectHideFlags: 0
@@ -688,3 +689,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e351dad6147b63840810276dbc7d0cbf, type: 3}
+--- !u!95 &4925131423963587989 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1743624602673517832, guid: e351dad6147b63840810276dbc7d0cbf, type: 3}
+  m_PrefabInstance: {fileID: 4925131423963587988}
+  m_PrefabAsset: {fileID: 0}

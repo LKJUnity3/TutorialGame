@@ -10,6 +10,9 @@ public class BossManager : MonoBehaviour
     public GameObject colorSpherePrefab;
     public int[] colorList = new int[3];
     public int hitCount = 0;
+
+    public Animator animator;
+
     public void Awake()
     {
         if (instance == null)
@@ -31,7 +34,7 @@ public class BossManager : MonoBehaviour
             Debug.Log("True");
             if (hitCount == 3)
             {
-                Destroy(Boss);
+                animator.SetTrigger("Die");
             }
         }
         else
