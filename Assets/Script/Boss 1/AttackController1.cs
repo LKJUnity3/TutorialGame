@@ -33,11 +33,16 @@ public class AttackController1 : MonoBehaviour
     {
         if (coll.CompareTag("Player"))
         {
-            //딜
             Destroy(gameObject);
+            PlayerController player = coll.gameObject.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                GameManager.instance.PlayerDie();
+            }
         }
         //시간남으면 오브젝트 벽에 부딪치는거까지
     }
+
 
 
 }

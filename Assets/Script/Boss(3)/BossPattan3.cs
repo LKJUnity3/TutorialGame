@@ -102,4 +102,13 @@ public class BossPattan3 : LookBoss
         _rigidbody.velocity = Vector3.zero;
         animator.SetTrigger("Die");
     }
+
+    protected void OnCollisionEnter(Collision collision)
+    {
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            GameManager.instance.PlayerDie();
+        }
+    }
 }
