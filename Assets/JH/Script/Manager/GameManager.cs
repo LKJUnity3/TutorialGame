@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void PlayerDie()
+    public void PlayerDie()
     {
         if (controller.playerState == PlayerState.Dash)
         {

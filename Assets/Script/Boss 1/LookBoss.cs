@@ -23,8 +23,4 @@ public class LookBoss : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, SetRotation, LookSpeed * Time.deltaTime);
     }
 
-    protected void OnCollisionEnter(Collision collision)
-    {
-        
-    }
 }
