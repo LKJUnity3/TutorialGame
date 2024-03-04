@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4210758756040778774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.54, z: 2.16}
+  m_LocalPosition: {x: 0, y: 2.54, z: -2.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52,7 +52,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.07, y: 2.82, z: 0.3461461}
+  m_Size: {x: 3.65, y: 4.73, z: 0.3461461}
   m_Center: {x: 0, y: 0, z: -0.32692695}
 --- !u!114 &8418115243482989953
 MonoBehaviour:
@@ -76,8 +76,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6211908807309530612}
   - component: {fileID: 2864649444211389458}
-  - component: {fileID: 1203608911630679240}
   - component: {fileID: 473556052155863577}
+  - component: {fileID: 8215484182742041491}
   m_Layer: 0
   m_Name: Boss2
   m_TagString: Untagged
@@ -130,27 +130,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &1203608911630679240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8598879759959420719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c39b9d37dc42c36469b60a51c573c516, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  LookSpeed: 2.3
-  data: {fileID: 11400000, guid: 6b680026223b7364aa5b4b71cb3f2edc, type: 2}
-  speed: 10
-  targetPos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!136 &473556052155863577
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -174,6 +153,27 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 1.16, z: 0}
+--- !u!114 &8215484182742041491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8598879759959420719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00f573484032a8429c375d8e6c72da8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  LookSpeed: 5
+  data: {fileID: 11400000, guid: 6b680026223b7364aa5b4b71cb3f2edc, type: 2}
+  speed: 10
+  targetPos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &2683551220985924305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9048311069594653826, guid: 312899f90dae0ad47bee3d925683f490, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.96
+      value: -2.54
       objectReference: {fileID: 0}
     - target: {fileID: 9048311069594653826, guid: 312899f90dae0ad47bee3d925683f490, type: 3}
       propertyPath: m_LocalRotation.w

@@ -39,6 +39,7 @@ public class SceneController : MonoBehaviour
     public void MoveStartSceneBtn()
     {
         SceneManager.LoadScene("StartScene");
+        Destroy(GameManager.instance.Player);
     }
 
 }
