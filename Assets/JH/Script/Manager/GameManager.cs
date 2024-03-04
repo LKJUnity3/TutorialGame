@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         }
 
         Player = GameObject.Find("Player");
+        CurBoss = Boss[0];
     }
 
     // Start is called before the first frame update
@@ -109,6 +110,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Destroy(CurBoss.GetComponent<Rigidbody>());
+
         GameOverObj.SetActive(true);
         //Time.timeScale = 0;
     }

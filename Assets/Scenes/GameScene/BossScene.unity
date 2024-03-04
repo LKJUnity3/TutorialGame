@@ -166,7 +166,7 @@ MonoBehaviour:
   animController: {fileID: 0}
   Player: {fileID: 0}
   Boss:
-  - {fileID: 6973889519156719071, guid: e351dad6147b63840810276dbc7d0cbf, type: 3}
+  - {fileID: 57931992}
   - {fileID: 8598879759959420719, guid: 95f4af690f991914a99b01fb2e925cef, type: 3}
   - {fileID: 527943847881776903, guid: 84ca2524a3b41914285ee7a34037aaf2, type: 3}
   bossSequence: 0
