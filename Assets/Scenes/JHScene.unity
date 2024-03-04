@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
+  animController: {fileID: 0}
   Player: {fileID: 0}
   Boss:
   - {fileID: 6973889519156719071, guid: e351dad6147b63840810276dbc7d0cbf, type: 3}
@@ -174,7 +175,7 @@ MonoBehaviour:
   GameClearObj: {fileID: 0}
   TimeTxt: {fileID: 0}
   BestTimeTxt: {fileID: 0}
-  Boss3: {fileID: 0}
+  CurBoss: {fileID: 0}
 --- !u!4 &71026150
 Transform:
   m_ObjectHideFlags: 0
@@ -2168,7 +2169,7 @@ PrefabInstance:
     - target: {fileID: 1743624602673517832, guid: e351dad6147b63840810276dbc7d0cbf, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 707b944f06051734793367fc0c69bc07, type: 2}
+      objectReference: {fileID: 9100000, guid: ff73514eff20a5242beeb03a604b42fc, type: 2}
     - target: {fileID: 4836060029966742908, guid: e351dad6147b63840810276dbc7d0cbf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 3.7026303
