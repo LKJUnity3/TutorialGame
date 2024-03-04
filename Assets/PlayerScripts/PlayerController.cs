@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
                 
                 if(throwSword != null)
                 {
-                    Debug.Log("돌아와");
                     if (isReturnSword == false)//움직이기 가능
                     {
                         //코루틴이 한번만 작동되도록 설정.
@@ -122,7 +121,6 @@ public class PlayerController : MonoBehaviour
         throwSword.swordSpeed = 1000f;
         float _distance = Vector3.Distance(throwSword.transform.position, transform.position);//거리계산
 
-        Debug.Log(_distance);
 
         while (_distance > 1.5f)
         {
@@ -183,7 +181,6 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("투척");
             if (playerState == PlayerState.Dash)//Dash상태일땐 투척불가
                 return;
 

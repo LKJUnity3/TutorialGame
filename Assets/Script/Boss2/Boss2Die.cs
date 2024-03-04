@@ -17,6 +17,7 @@ public class Boss2Die : MonoBehaviour
 
         if(sword != null)
         {
+            if (!sword.stopSword) return;
             Debug.Log("º¸½º Á×À½");
             _boss.BossDie();
         }
