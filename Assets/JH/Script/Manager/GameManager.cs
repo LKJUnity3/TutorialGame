@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
     public void DestroyBoss(GameObject target)
     {
         Destroy(target);   
-        if(bossSequence != 4)
+        if(bossSequence != 2)
         {
             bossSequence++;
         }
