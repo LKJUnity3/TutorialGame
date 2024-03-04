@@ -16,11 +16,11 @@ public class DotoriDie : MonoBehaviour
             GameManager.instance.PlayerDie();
         }
 
-        bossPattan3 = collision.GetComponent<BossPattan3>();
+        /*bossPattan3 = collision.GetComponent<BossPattan3>();
         if (bossPattan3 != null)
         {
-            // 보스 도토리 충돌시
-        }
+            Debug
+        }*/
         
     }
 }

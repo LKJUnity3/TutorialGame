@@ -32,11 +32,11 @@ public class BossPattan3 : LookBoss
     {
         LookTarget();
 
-        if(transform.childCount == 0 && bombTrue)
+        /*if(transform.childCount == 0 && bombTrue)
         {
             bombTrue = false;
-            Bomb();
-        }
+            *//*Bomb();*//*
+        }*/
 
         if(Input.GetKeyDown(KeyCode.E))
         {
@@ -55,7 +55,7 @@ public class BossPattan3 : LookBoss
     }
 
 
-    IEnumerator Bomb()
+/*    IEnumerator Bomb()
     {
 
         yield return new WaitForSeconds(5f);
@@ -63,7 +63,7 @@ public class BossPattan3 : LookBoss
 
         bombTrue = true;
         
-    }
+    }*/
 
 
     void Jump()
