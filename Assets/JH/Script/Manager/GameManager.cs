@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Destroy(CurBoss.GetComponent<Rigidbody>());
+        //Destroy(CurBoss.GetComponent<Rigidbody>());
 
         GameOverObj.SetActive(true);
         //Time.timeScale = 0;
