@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     //[HideInInspector]
     public GameObject CurBoss;
 
+    public Transform[] targetPos;
+
     float time = 0;
 
     private void Awake()

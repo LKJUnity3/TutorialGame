@@ -24,6 +24,11 @@ public class BossPattan1 : LookBoss
         StartCoroutine(Move());
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+
+        for(int i=0; i<GameManager.instance.targetPos.Length;i++)
+        {
+            targetPos[i] = GameManager.instance.targetPos[i];
+        }
     }
 
 

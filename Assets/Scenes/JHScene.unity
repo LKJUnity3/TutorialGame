@@ -176,6 +176,11 @@ MonoBehaviour:
   TimeTxt: {fileID: 0}
   BestTimeTxt: {fileID: 0}
   CurBoss: {fileID: 0}
+  targetPos:
+  - {fileID: 1096229309}
+  - {fileID: 903148912}
+  - {fileID: 1381320163}
+  - {fileID: 945075127}
 --- !u!4 &71026150
 Transform:
   m_ObjectHideFlags: 0
