@@ -7,8 +7,6 @@ using UnityEngine;
 public class SpawnDotori : MonoBehaviour
 {
     [SerializeField] GameObject dotoriPrefab;
-    private bool isNull = false;
-    private float time = 5f;
     [SerializeField]
     private Transform Player;
     Animator animator;
@@ -19,10 +17,6 @@ public class SpawnDotori : MonoBehaviour
         Player = GameManager.instance.Player.transform;
         //DotoriSpawn();
     }
-    private void Update()
-    {
-    }
-
     public void DotoriSpawn()
     {
         GameObject Clone = Instantiate(dotoriPrefab);
@@ -32,20 +26,13 @@ public class SpawnDotori : MonoBehaviour
         animator = Clone.GetComponentInChildren<Animator>();
         dotori = Clone;
     }
-
     public void DestroyDotori(GameObject gameObject)
     {
         Destroy(gameObject,0.5f);
         animator.SetBool("isBomb", true);
     }
-
-
-
-    
-
     public bool IsNullReturn()
     {
         return dotori == null;
     }
-
 }
