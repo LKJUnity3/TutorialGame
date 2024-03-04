@@ -85,7 +85,7 @@ public class ThrowSword : MonoBehaviour
     {
         float _distance = Vector3.Distance(RealBoss.transform.position, Player.transform.position);//보스와 플레이어의 거리계산
 
-        while (_distance > 2.5f)
+        while (_distance > 0.5f)
         {
             _distance = Vector3.Distance(RealBoss.transform.position, Player.transform.position);
             comebackTime += Time.deltaTime / 10;
