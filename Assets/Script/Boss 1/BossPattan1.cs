@@ -15,13 +15,20 @@ public class BossPattan1 : LookBoss
     private Rigidbody _rigidbody;
     private bool MoveOn;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         MoveOn = true;
         data.targetTransform = target;
         StartCoroutine(Move());
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+
+        for(int i=0; i<GameManager.instance.targetPos.Length;i++)
+        {
+            targetPos[i] = GameManager.instance.targetPos[i];
+        }
     }
 
 

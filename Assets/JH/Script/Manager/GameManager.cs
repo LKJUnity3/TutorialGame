@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     //[HideInInspector]
     public GameObject CurBoss;
 
+    public Transform[] targetPos;
+
     float time = 0;
 
     private void Awake()
@@ -118,10 +120,16 @@ public class GameManager : MonoBehaviour
 
     public void DestroyBoss(GameObject target)
     {
-        animController.Victory();
-
-        Destroy(target);
-        bossSequence++;
+        Destroy(target);   
+        if(bossSequence != 4)
+        {
+            bossSequence++;
+        }
+        else
+        {
+            animController.Victory();
+            GameClear();
+        }
         SpawnBoss();
     }
 

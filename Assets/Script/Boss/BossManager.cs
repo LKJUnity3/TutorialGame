@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BossManager : MonoBehaviour
 {
+
+    
     [SerializeField]
     private GameObject Boss;
     public static BossManager instance;
