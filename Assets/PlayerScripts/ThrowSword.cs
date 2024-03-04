@@ -18,7 +18,7 @@ public class ThrowSword : MonoBehaviour
     public GameObject RealBoss;
     public GameObject Player;
 
-    public BossPattan1 boss2;
+    public BossPattan2 boss2;
     public BossPattan3 boss3;
 
     [SerializeField]
@@ -60,7 +60,7 @@ public class ThrowSword : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         boss3 = other.GetComponent<BossPattan3>();
-        boss2 = other.GetComponent<BossPattan1>();
+        boss2 = other.GetComponent<BossPattan2>();
 
         if (boss3 != null)
         {
