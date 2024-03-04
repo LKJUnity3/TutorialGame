@@ -21,9 +21,9 @@ public class SceneController : MonoBehaviour
     {
         if(SceneName.name == "MainScene" && GameObject.Find("Player"))
         {
-            SceneManager.LoadScene("JHScene");
+            SceneManager.LoadScene("BossScene");
         }
-        else if(SceneName.name == "JHScene")
+        else if(SceneName.name == "BossScene")
         {
             entering = true;
             SceneManager.LoadScene("MainScene");
