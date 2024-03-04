@@ -13,14 +13,17 @@ public class SpawnDotori : MonoBehaviour
     private Transform Player;
     Animator animator;
 
+    GameObject _dotoryParent;
+
     private void Start()
     {
+        _dotoryParent = GameManager.instance.DotorySpwan;
         Player = GameManager.instance.Player.transform;
         //DotoriSpawn();
     }
     private void Update()
     {
-        if (isNull)
+        if (_dotoryParent.transform.childCount == 0)
         {
             time -= Time.deltaTime;
             if (time < 0)
@@ -28,6 +31,10 @@ public class SpawnDotori : MonoBehaviour
                 isNull = false;
                 time = 5f;
                 //DotoriSpawn();
+            }
+            else
+            {
+                isNull = true;
             }
         }
     }
@@ -38,6 +45,7 @@ public class SpawnDotori : MonoBehaviour
         Clone.transform.position = transform.position;
         Clone.GetComponent<DotoriMove>().Setup(Player,this);
         Clone.GetComponentInChildren<Renderer>().material.color = Color.black;
+        Clone.transform.parent = _dotoryParent.transform;
         animator = Clone.GetComponentInChildren<Animator>();
     }
 
@@ -45,7 +53,7 @@ public class SpawnDotori : MonoBehaviour
     {
         Destroy(gameObject,0.5f);
         animator.SetBool("isBomb", true);
-        isNull = true;
+        //isNull = true;
     }
 
     public bool IsNullReturn()
