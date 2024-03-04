@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  bossDmg: 1
 --- !u!1001 &7541134011074728073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,6 +114,10 @@ PrefabInstance:
     - target: {fileID: 5728786442211989911, guid: 4f50ab6f10ca75347b3d6bf1e005f272, type: 3}
       propertyPath: m_Name
       value: Dotori
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215047607159972321, guid: 4f50ab6f10ca75347b3d6bf1e005f272, type: 3}
+      propertyPath: m_Radius
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

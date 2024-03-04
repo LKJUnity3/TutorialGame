@@ -110,6 +110,10 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if (GameClearObj.activeSelf == true)
+        {
+            return;
+        }
         Destroy(CurBoss.GetComponent<Rigidbody>());
 
         GameOverObj.SetActive(true);

@@ -25,9 +25,9 @@ public class DotoriDie : MonoBehaviour
         bossPattan3 = collision.GetComponent<BossPattan3>();
         if (bossPattan3 != null)
         {
-            if (move.bossDmg < 0)
+            if (move.bossDmg <= 0)
             {
-                bossPattan3.BossDie();
+                GameManager.instance.GameClear();
             }
         }
 

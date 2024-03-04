@@ -13,7 +13,7 @@ public class DotoriMove : MonoBehaviour
     protected float timeToFloor;
     private SpawnDotori spawn;
     protected float dotoriDestory;
-    public float bossDmg = 2f;
+    public float bossDmg = 0;
     public void Setup(Transform transform,SpawnDotori spawn)
     {
         Player = transform;
@@ -41,6 +41,7 @@ public class DotoriMove : MonoBehaviour
 
     private void Update()
     {
+        bossDmg -= Time.deltaTime;
         dotoriDestory -= Time.deltaTime;
         if (dotoriDestory < 0)
         {
