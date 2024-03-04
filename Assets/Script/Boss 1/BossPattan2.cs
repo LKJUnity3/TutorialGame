@@ -15,6 +15,9 @@ public class BossPattan2 : LookBoss
     private Rigidbody _rigidbody;
     private bool MoveOn;
 
+    AudioSource audioSource;
+    public AudioClip audioBossDie2;
+
     protected override void Start()
     {
         base.Start();
@@ -24,8 +27,9 @@ public class BossPattan2 : LookBoss
         StartCoroutine(Move());
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
-        for(int i=0; i<GameManager.instance.targetPos.Length;i++)
+        for (int i=0; i<GameManager.instance.targetPos.Length;i++)
         {
             targetPos[i] = GameManager.instance.targetPos[i];
         }
@@ -80,6 +84,7 @@ public class BossPattan2 : LookBoss
         StopCoroutine(Move());
         _rigidbody.velocity = Vector3.zero;
         animator.SetTrigger("Die");
+        audioSource.PlayOneShot(audioBossDie2);
     }
 
     protected void OnCollisionEnter(Collision collision)

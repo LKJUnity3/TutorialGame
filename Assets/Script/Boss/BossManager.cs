@@ -18,6 +18,9 @@ public class BossManager : MonoBehaviour
 
     public Animator animator;
 
+    AudioSource audioSource;
+    public AudioClip audioBossDie1;
+
     public void Awake()
     {
         if (instance == null)
@@ -29,6 +32,7 @@ public class BossManager : MonoBehaviour
     public void Start()
     {
         SpawnDotoriPrefab();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void CheckColorCount(int state)
@@ -40,6 +44,7 @@ public class BossManager : MonoBehaviour
             if (hitCount == 3)
             {
                 animator.SetTrigger("Die");
+                audioSource.PlayOneShot(audioBossDie1);
                 for (int i = 0; i < cube.Count; i++)
                 {
                     GameManager.instance.DestroyCube(cube[i]);

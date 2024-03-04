@@ -36,11 +36,16 @@ public class PlayerController : MonoBehaviour
 
     bool isReturnSword = false;
 
+    AudioSource audioSource;
+    public AudioClip audioDash;
+    public AudioClip audioShoot;
+
     void Start()
     {
         playerState = PlayerState.Move;
         DashCoolTime = 2.2f;
         animController = GetComponent<PlayerAnimController>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -59,7 +64,7 @@ public class PlayerController : MonoBehaviour
                 Move();
                 break;
             case PlayerState.Dash:
-                Dash();
+                Dash();               
                 break;
             case PlayerState.Shoot:
                 
@@ -72,14 +77,17 @@ public class PlayerController : MonoBehaviour
                         playerState = PlayerState.Move;
                         StartCoroutine(ReturnSword());
                         throwSword.BringTheBoss3();
+                        audioSource.PlayOneShot(audioShoot);
                     }
                 }
                 else
                 {
-                ShootSword();
+                    ShootSword();
+                    audioSource.PlayOneShot(audioShoot);
                 }
                 break;
         }
+        audioSource.Play();
     }
 
     public void Move()
@@ -171,7 +179,7 @@ public class PlayerController : MonoBehaviour
 
         dashDirection = moveDirection;//moveDirection 방향으로
         playerState = PlayerState.Dash;
-
+        audioSource.PlayOneShot(audioDash);
         if (DashCoolTime >= 2.2f)
         {
             DashCoolTime = 0; //초기화

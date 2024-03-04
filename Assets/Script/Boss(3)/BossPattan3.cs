@@ -16,7 +16,8 @@ public class BossPattan3 : LookBoss
     private Animator animator;
     private Rigidbody _rigidbody;
 
-
+    AudioSource audioSource;
+    public AudioClip audioBossDie3;
 
     protected override void Start()
     {
@@ -25,6 +26,7 @@ public class BossPattan3 : LookBoss
         bombTrue = true;
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(Move());
     }
 
@@ -101,6 +103,7 @@ public class BossPattan3 : LookBoss
     {
         _rigidbody.velocity = Vector3.zero;
         animator.SetTrigger("Die");
+        audioSource.PlayOneShot(audioBossDie3);
     }
 
     protected void OnCollisionEnter(Collision collision)
