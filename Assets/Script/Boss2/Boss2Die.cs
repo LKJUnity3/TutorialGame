@@ -14,7 +14,7 @@ public class Boss2Die : MonoBehaviour
     private void OnTriggerEnter(Collider coll )
     {
         ThrowSword sword = coll.gameObject.GetComponent<ThrowSword>();
-
+        Debug.Log("111");
         if(sword != null)
         {
             if (!sword.stopSword) return;
