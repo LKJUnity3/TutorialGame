@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public Transform[] targetPos;
 
     float time = 0;
+    public GameObject DotorySpwan;
 
     private void Awake()
     {

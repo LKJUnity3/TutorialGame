@@ -21,7 +21,6 @@ public class CameraController : MonoBehaviour
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, PlayerPosition, Speed);
         if (SceneName.name == "MainScene")
         {
-            Debug.Log("º¸½º ¾À");
             smoothedPosition.y = transform.position.y;
             smoothedPosition.z = smoothedPosition.z - minusZ;
             transform.position = smoothedPosition;

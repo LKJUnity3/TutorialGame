@@ -27,6 +27,9 @@ public class ThrowSword : MonoBehaviour
     [SerializeField]
     private Rigidbody swordRigidbody;
 
+
+    [HideInInspector] public bool stopSword = true;
+
     void Start()
     {
         swordMoveTime = 0;
@@ -45,6 +48,7 @@ public class ThrowSword : MonoBehaviour
         if( swordMoveTime > swordMoveStopTime)
         {
             swordRigidbody.velocity = Vector3.zero;//일정시간이 지나면 그자리에서 멈춤/ 스타트
+            stopSword = false;
             swordMoveTime = 0;
         }
 
@@ -52,6 +56,7 @@ public class ThrowSword : MonoBehaviour
         Vector3 moveDirection = swordRigidbody.velocity.normalized;//스타트
         if (moveDirection != Vector3.zero)
         {
+            stopSword = true;
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = targetRotation;
         }
@@ -85,7 +90,7 @@ public class ThrowSword : MonoBehaviour
     {
         float _distance = Vector3.Distance(RealBoss.transform.position, Player.transform.position);//보스와 플레이어의 거리계산
 
-        while (_distance > 2.5f)
+        while (_distance > 0.5f)
         {
             _distance = Vector3.Distance(RealBoss.transform.position, Player.transform.position);
             comebackTime += Time.deltaTime / 10;

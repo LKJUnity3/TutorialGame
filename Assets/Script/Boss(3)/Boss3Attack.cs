@@ -27,7 +27,7 @@ public class Boss3Attack : MonoBehaviour
         if (coll.gameObject.CompareTag("Ground"))
         {
             animator.SetTrigger("@Jump");
-            if(!spawnDotori.IsNullReturn())
+            if(spawnDotori.IsNullReturn())
             {
                 spawnDotori.DotoriSpawn();
             }
