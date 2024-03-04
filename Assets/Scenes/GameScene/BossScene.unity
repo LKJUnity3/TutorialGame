@@ -171,10 +171,10 @@ MonoBehaviour:
   - {fileID: 527943847881776903, guid: 84ca2524a3b41914285ee7a34037aaf2, type: 3}
   bossSequence: 0
   colorList: 000000000000000000000000
-  GameOverObj: {fileID: 0}
-  GameClearObj: {fileID: 0}
-  TimeTxt: {fileID: 0}
-  BestTimeTxt: {fileID: 0}
+  GameOverObj: {fileID: 1548293458}
+  GameClearObj: {fileID: 1884616494}
+  TimeTxt: {fileID: 411806767}
+  BestTimeTxt: {fileID: 2029982160}
   CurBoss: {fileID: 0}
   targetPos:
   - {fileID: 1096229309}
@@ -1610,7 +1610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 903148911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.35, z: -18.97}
+  m_LocalPosition: {x: 0, y: 0.5, z: -18.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1763,7 +1763,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945075126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.8, z: 11.5}
+  m_LocalPosition: {x: 0, y: 0.5, z: 11.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2034,7 +2034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096229308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.4, y: 0.35, z: 0}
+  m_LocalPosition: {x: 18.4, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2598,7 +2598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381320162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.34, y: 0.35, z: 0}
+  m_LocalPosition: {x: -18.34, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
