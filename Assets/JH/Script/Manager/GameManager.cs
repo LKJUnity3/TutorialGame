@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour
 
         }
         controller = GetComponent<PlayerController>();
+
+        animController = Player.GetComponent<PlayerAnimController>();
+
     }
 
     // Update is called once per frame
