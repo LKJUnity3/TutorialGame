@@ -20,6 +20,7 @@ public class ThrowSword : MonoBehaviour
 
     public BossPattan1 boss2;
     public BossPattan3 boss3;
+    public Mushroom mushroom;
 
     [SerializeField]
     private MeshRenderer swordVariant;
@@ -61,6 +62,7 @@ public class ThrowSword : MonoBehaviour
     {
         boss3 = other.GetComponent<BossPattan3>();
         boss2 = other.GetComponent<BossPattan1>();
+        mushroom = other.GetComponent<Mushroom>();
 
         if (boss3 != null)
         {
@@ -72,6 +74,10 @@ public class ThrowSword : MonoBehaviour
         {
             gameObject.GetComponent<Collider>().isTrigger = false;
             swordSpeed = 0;
+        }
+        if(mushroom != null)
+        {
+            swordRigidbody.velocity = Vector3.zero;
         }
     }
 
