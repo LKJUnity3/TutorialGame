@@ -26,7 +26,7 @@ public class SpawnDotori : MonoBehaviour
             if (time < 0)
             {
                 isNull = false;
-                time = 5f;
+                time = 5.5f;
                 //DotoriSpawn();
             }
         }
