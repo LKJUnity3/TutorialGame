@@ -23,8 +23,6 @@ public class CameraController : MonoBehaviour
         {
             Debug.Log("º¸½º ¾À");
             smoothedPosition.y = transform.position.y;
-
-
             smoothedPosition.z = smoothedPosition.z - minusZ;
             transform.position = smoothedPosition;
             return;

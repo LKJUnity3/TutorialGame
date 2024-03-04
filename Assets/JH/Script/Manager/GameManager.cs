@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         {
 
         }
-        controller = GetComponent<PlayerController>();
+        controller = Player.GetComponent<PlayerController>();
 
         animController = Player.GetComponent<PlayerAnimController>();
 
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
     {
         Destroy(CurBoss.GetComponent<Rigidbody>());
         GameOverObj.SetActive(true);
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     public void GameClear()
