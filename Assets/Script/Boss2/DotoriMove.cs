@@ -13,7 +13,7 @@ public class DotoriMove : MonoBehaviour
     protected float timeToFloor;
     private SpawnDotori spawn;
     protected float dotoriDestory;
-
+    public float bossDmg = 2f;
     public void Setup(Transform transform,SpawnDotori spawn)
     {
         Player = transform;
@@ -47,6 +47,7 @@ public class DotoriMove : MonoBehaviour
             spawn.DestroyDotori(gameObject);
         }
     }
+
 
     private void Start()
     {

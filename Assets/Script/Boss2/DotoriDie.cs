@@ -8,6 +8,12 @@ public class DotoriDie : MonoBehaviour
 {
     private PlayerController playerController;
     private BossPattan3 bossPattan3;
+    private DotoriMove move;
+
+    private void Awake()
+    {
+        move = GetComponentInParent<DotoriMove>();
+    }
     private void OnTriggerEnter(Collider collision)
     {
         playerController = collision.transform.GetComponent<PlayerController>();
@@ -16,11 +22,15 @@ public class DotoriDie : MonoBehaviour
             GameManager.instance.PlayerDie();
         }
 
-        /*bossPattan3 = collision.GetComponent<BossPattan3>();
+        bossPattan3 = collision.GetComponent<BossPattan3>();
         if (bossPattan3 != null)
         {
-            Debug
-        }*/
+            if (move.bossDmg < 0)
+            {
+                bossPattan3.BossDie();
+            }
+        }
+
         
     }
 }
