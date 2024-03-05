@@ -11,10 +11,13 @@ public class SpawnDotori : MonoBehaviour
     private Transform Player;
     Animator animator;
     private GameObject dotori;
+    public AudioClip Bomb;
+    private AudioSource audioSource;
 
     private void Start()
     {
         Player = GameManager.instance.Player.transform;
+        audioSource = GetComponent<AudioSource>();
         //DotoriSpawn();
     }
     public void DotoriSpawn()
@@ -25,6 +28,8 @@ public class SpawnDotori : MonoBehaviour
         Clone.GetComponentInChildren<Renderer>().material.color = Color.black;
         animator = Clone.GetComponentInChildren<Animator>();
         dotori = Clone;
+        audioSource.PlayOneShot(Bomb);
+
     }
     public void DestroyDotori(GameObject gameObject)
     {
