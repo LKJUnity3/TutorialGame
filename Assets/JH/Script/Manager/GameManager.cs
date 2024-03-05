@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
         TimeTxt.text = SetTime((int)time);
         SetBestTime();
         GameClearObj.SetActive(true);
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     public void DestroyBoss(GameObject target)

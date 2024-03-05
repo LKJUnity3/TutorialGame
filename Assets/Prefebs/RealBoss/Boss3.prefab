@@ -136,6 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dotoriPrefab: {fileID: 4784288974554588933, guid: daab467bff547c64a9cde3f02742612b, type: 3}
   Player: {fileID: 0}
+  Bomb: {fileID: 8300000, guid: d0ed6c04d396c8e4c8298e95efca5bba, type: 3}
+  audioSource: {fileID: 0}
 --- !u!82 &-6620650849683681699
 AudioSource:
   m_ObjectHideFlags: 0
